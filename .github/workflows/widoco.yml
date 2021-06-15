@@ -65,12 +65,12 @@ jobs:
       #
       - name: Create widoco config
         run: |
-            mkdir config || true
+            mkdir ./config || true
             echo "ontologyPrefix=ekgux" > config/config.properties
-            echo "ontologyNamespaceURI=https://ekgf.github.io/o-ux/ontology.owl#" >> config/config.properties
+            echo "ontologyNamespaceURI=https://ekgf.github.io/o-ux/component#" >> config/config.properties
             echo "dateOfRelease=$(date '+%d %B %Y')" >> config/config.properties
-            echo "thisVersionURI=https://ekgf.github.io/o-ux/ontology.owl#" >> config/config.properties
-            echo "latestVersionURI=https://ekgf.github.io/o-ux/ontology.owl#" >> config/config.properties
+            echo "thisVersionURI=https://ekgf.github.io/o-ux/component#" >> config/config.properties
+            echo "latestVersionURI=https://ekgf.github.io/o-ux/component#" >> config/config.properties
             #echo "previousVersionURI=http://example.org/previousVersion
             echo "ontologyRevisionNumber=0.1" >> config/config.properties
             #echo "authors=First Author;Second Author
@@ -91,7 +91,7 @@ jobs:
             echo "citeAs=EKG/UX Component Ontology" >> config/config.properties
             echo "status=Ontology Draft" >> config/config.properties
             #echo "RDFXMLSerialization=https://ekgf.github.io/o-ux/ontology.xxx"
-            echo "TurtleSerialization=https://ekgf.github.io/o-ux/ontology.owl" >> config/config.properties
+            echo "TurtleSerialization=https://ekgf.github.io/o-ux/component" >> config/config.properties
             echo "N3Serialization=https://ekgf.github.io/o-ux/ontology.n3" >> config/config.properties
             echo "JSONLDSerialization=https://ekgf.github.io/o-ux/ontology.json" >> config/config.properties
             echo "Config Properties:"
@@ -104,11 +104,12 @@ jobs:
         run: |
           echo "Root Directory:"
           ls -al
+          ls -al ./config
           echo "Start Widoco:"
           java \
             -jar widoco.jar \
             -getOntologyMetadata \
-            -ontFile ux-component.owl \
+            -ontFile ux-component.ttl \
             -outFolder ./html \
             -rewriteAll \
             -ignoreIndividuals \
@@ -125,13 +126,11 @@ jobs:
           find .
           echo "Rename index-en.html to index.html:"
           grep -RIl 'index-en.html' | xargs sed -i 's/index-en.html/index.html/g'
-          # grep -RIl 'ontology.ttl' | xargs sed -i 's/ontology.ttl/ontology.owl/g'
           echo "Rename OOPSEvaluation/OOPSeval to OOPSevaluation/oopsEval:"
           grep -RiIl 'OOPSEvaluation/OOPSeval' | xargs sed -i 's@OOPSEvaluation/OOPSeval@OOPSevaluation/oopsEval@g'
           mv index-en.html index.html
-          mv ontology.ttl ontology.owl
           echo "Now also copy the ontology file to 'component' so that the URL https://ekgf.github.io/o-ux/component# works"
-          cp ontology.owl component
+          cp ontology.ttl component
           echo "After the renames:"
           find .
 

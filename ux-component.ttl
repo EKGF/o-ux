@@ -1,20 +1,23 @@
-@prefix : <https://ekgf.github.io/o-ux/ontology.owl#> .
+@prefix : <https://ekgf.github.io/o-ux/component#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix ekgux: <https://ekgf.github.io/o-ux/ontology.owl#> .
-@base <https://ekgf.github.io/o-ux/ontology.owl#> .
+@prefix ekgux: <https://ekgf.github.io/o-ux/component#> .
+@prefix orcid: <http://orcid.org/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://ekgf.github.io/o-ux/component#> .
 
-<https://ekgf.github.io/o-ux/ontology.owl#> rdf:type owl:Ontology ;
+<https://ekgf.github.io/o-ux/component#> rdf:type owl:Ontology ;
                                              <http://purl.org/dc/elements/1.1/creator> "http://orcid.org/0000-0003-2309-5068"^^xsd:anyURI ;
                                              <http://purl.org/dc/elements/1.1/date> "2021-06-15" ;
                                              <http://purl.org/dc/elements/1.1/title> "The EKG/UX Component Ontology" ;
                                              <http://purl.org/dc/terms/rights> <https://ekgf.github.io/o-ux/LICENSE> ;
                                              vann:preferredNamespacePrefix "ekgux" ,
-                                                                           "https://ekgf.github.io/o-ux/ontology.owl#" ;
+                                                                           "https://ekgf.github.io/o-ux/component#" ;
                                              rdfs:comment """The core concept in the EKG/UX Component Ontology is the class Component which represents the information that is needed for a given user interface (or report) component.
 
 These Components form a tree-like structure where a parent Component
@@ -64,7 +67,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 #    Classes
 #################################################################
 
-###  https://ekgf.github.io/o-ux/ontology.owl#AnonymousUser
+###  https://ekgf.github.io/o-ux/component#AnonymousUser
 ekgux:AnonymousUser rdf:type owl:Class ;
                     rdfs:subClassOf ekgux:User ;
                     owl:disjointWith ekgux:NamedUser ;
@@ -72,7 +75,7 @@ ekgux:AnonymousUser rdf:type owl:Class ;
                     rdfs:label "Anonymous User"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#AppBar
+###  https://ekgf.github.io/o-ux/component#AppBar
 ekgux:AppBar rdf:type owl:Class ;
              rdfs:subClassOf ekgux:Surface ;
              <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -84,7 +87,7 @@ A bottom app bar displays navigation and key actions at the bottom of mobile scr
                           "https://material.io/components/app-bars-top"^^xsd:anyURI .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#AppNavigator
+###  https://ekgf.github.io/o-ux/component#AppNavigator
 ekgux:AppNavigator rdf:type owl:Class ;
                    rdfs:subClassOf ekgux:NavigationComponent ;
                    <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -97,7 +100,7 @@ primary destinations in the existing App supporting:
                    rdfs:label "App Navigator"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Backdrop
+###  https://ekgf.github.io/o-ux/component#Backdrop
 ekgux:Backdrop rdf:type owl:Class ;
                rdfs:subClassOf ekgux:Surface ;
                <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -106,7 +109,7 @@ ekgux:Backdrop rdf:type owl:Class ;
                rdfs:seeAlso <https://material.io/components/backdrop> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Banner
+###  https://ekgf.github.io/o-ux/component#Banner
 ekgux:Banner rdf:type owl:Class ;
              rdfs:subClassOf ekgux:TemporarySurface ;
              <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -115,7 +118,7 @@ ekgux:Banner rdf:type owl:Class ;
              rdfs:seeAlso <https://material.io/components/banners> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#BottomAppBar
+###  https://ekgf.github.io/o-ux/component#BottomAppBar
 ekgux:BottomAppBar rdf:type owl:Class ;
                    rdfs:subClassOf ekgux:AppBar ;
                    owl:disjointWith ekgux:TopAppBar ;
@@ -127,7 +130,7 @@ Bottom app bars provide access to a bottom navigation drawer and up to four acti
                    rdfs:seeAlso <https://material.io/components/app-bars-bottom> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#BottomNavigationBar
+###  https://ekgf.github.io/o-ux/component#BottomNavigationBar
 ekgux:BottomNavigationBar rdf:type owl:Class ;
                           rdfs:subClassOf ekgux:NavigationComponent ;
                           <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -138,7 +141,7 @@ Bottom navigation bars display three to five destinations at the bottom of a scr
                           rdfs:seeAlso <https://material.io/components/bottom-navigation> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#BottomSheet
+###  https://ekgf.github.io/o-ux/component#BottomSheet
 ekgux:BottomSheet rdf:type owl:Class ;
                   rdfs:subClassOf ekgux:Surface ;
                   <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -146,7 +149,7 @@ ekgux:BottomSheet rdf:type owl:Class ;
                   rdfs:seeAlso <https://material.io/components/sheets-bottom> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Button
+###  https://ekgf.github.io/o-ux/component#Button
 ekgux:Button rdf:type owl:Class ;
              rdfs:subClassOf ekgux:Element ;
              <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -155,14 +158,14 @@ ekgux:Button rdf:type owl:Class ;
              rdfs:seeAlso <https://material.io/components/buttons> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Canvas
+###  https://ekgf.github.io/o-ux/component#Canvas
 ekgux:Canvas rdf:type owl:Class ;
              rdfs:subClassOf ekgux:Surface ;
              <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
              rdfs:label "Canvas"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Card
+###  https://ekgf.github.io/o-ux/component#Card
 ekgux:Card rdf:type owl:Class ;
            rdfs:subClassOf ekgux:Surface ;
            <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -175,7 +178,7 @@ They should be easy to scan for relevant and actionable information. Elements, l
            rdfs:seeAlso <https://material.io/components/cards> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Checkbox
+###  https://ekgf.github.io/o-ux/component#Checkbox
 ekgux:Checkbox rdf:type owl:Class ;
                rdfs:subClassOf ekgux:Element ;
                <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -183,7 +186,7 @@ ekgux:Checkbox rdf:type owl:Class ;
                rdfs:seeAlso <https://material.io/components/checkboxes> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Chip
+###  https://ekgf.github.io/o-ux/component#Chip
 ekgux:Chip rdf:type owl:Class ;
            rdfs:subClassOf ekgux:Element ;
            <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -191,13 +194,13 @@ ekgux:Chip rdf:type owl:Class ;
            rdfs:seeAlso <https://material.io/components/chips> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Component
+###  https://ekgf.github.io/o-ux/component#Component
 ekgux:Component rdf:type owl:Class ;
                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
                 rdfs:label "Component"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#DataTable
+###  https://ekgf.github.io/o-ux/component#DataTable
 ekgux:DataTable rdf:type owl:Class ;
                 rdfs:subClassOf ekgux:Surface ;
                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -205,14 +208,14 @@ ekgux:DataTable rdf:type owl:Class ;
                 rdfs:seeAlso <https://material.io/components/data-tables> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#DatapointMenu
+###  https://ekgf.github.io/o-ux/component#DatapointMenu
 ekgux:DatapointMenu rdf:type owl:Class ;
                     rdfs:subClassOf ekgux:Menu ;
                     owl:disjointWith ekgux:StoryMenu ;
                     <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Dialog
+###  https://ekgf.github.io/o-ux/component#Dialog
 ekgux:Dialog rdf:type owl:Class ;
              rdfs:subClassOf ekgux:Surface ;
              <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -230,7 +233,7 @@ Dialogs should be used for:
              rdfs:seeAlso <https://material.io/components/dialogs> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Element
+###  https://ekgf.github.io/o-ux/component#Element
 ekgux:Element rdf:type owl:Class ;
               rdfs:subClassOf ekgux:ViewComponent ;
               owl:disjointWith ekgux:Surface ;
@@ -238,7 +241,7 @@ ekgux:Element rdf:type owl:Class ;
               rdfs:label "Element"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#ImageList
+###  https://ekgf.github.io/o-ux/component#ImageList
 ekgux:ImageList rdf:type owl:Class ;
                 rdfs:subClassOf ekgux:Element ;
                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -246,7 +249,7 @@ ekgux:ImageList rdf:type owl:Class ;
                 rdfs:seeAlso <https://material.io/components/image-lists> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#LandingThing
+###  https://ekgf.github.io/o-ux/component#LandingThing
 ekgux:LandingThing rdf:type owl:Class ;
                    rdfs:subClassOf ekgux:ModelComponent ;
                    <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -259,7 +262,7 @@ the EKG for all use cases supported for the given user and the given LandingThin
                    rdfs:label "Landing Thing"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#List
+###  https://ekgf.github.io/o-ux/component#List
 ekgux:List rdf:type owl:Class ;
            rdfs:subClassOf ekgux:Element ;
            <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -267,7 +270,7 @@ ekgux:List rdf:type owl:Class ;
            rdfs:seeAlso <https://material.io/components/lists> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Menu
+###  https://ekgf.github.io/o-ux/component#Menu
 ekgux:Menu rdf:type owl:Class ;
            rdfs:subClassOf ekgux:TemporarySurface ;
            <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -278,7 +281,7 @@ A menu displays a list of choices on a temporary surface. They appear when users
            rdfs:seeAlso "https://material.io/components/menus"^^xsd:anyURI .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#ModelComponent
+###  https://ekgf.github.io/o-ux/component#ModelComponent
 ekgux:ModelComponent rdf:type owl:Class ;
                      rdfs:subClassOf ekgux:Component ;
                      owl:disjointWith ekgux:ViewComponent ;
@@ -287,14 +290,14 @@ ekgux:ModelComponent rdf:type owl:Class ;
                      rdfs:label "Model Component"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#NamedUser
+###  https://ekgf.github.io/o-ux/component#NamedUser
 ekgux:NamedUser rdf:type owl:Class ;
                 rdfs:subClassOf ekgux:User ;
                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
                 rdfs:label "Named User"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#NavigationComponent
+###  https://ekgf.github.io/o-ux/component#NavigationComponent
 ekgux:NavigationComponent rdf:type owl:Class ;
                           rdfs:subClassOf ekgux:Surface ;
                           <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -302,7 +305,7 @@ ekgux:NavigationComponent rdf:type owl:Class ;
                           rdfs:label "Navigation Component"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#NavigationDestinations
+###  https://ekgf.github.io/o-ux/component#NavigationDestinations
 ekgux:NavigationDestinations rdf:type owl:Class ;
                              rdfs:subClassOf ekgux:ModelComponent ;
                              <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -312,7 +315,7 @@ To be used in conjunction with NavigationComponent."""@en ;
                              rdfs:label "Navigation Destinations"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#NavigationDrawer
+###  https://ekgf.github.io/o-ux/component#NavigationDrawer
 ekgux:NavigationDrawer rdf:type owl:Class ;
                        rdfs:subClassOf ekgux:NavigationComponent ;
                        <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -329,7 +332,7 @@ Navigation drawers are recommended for:
                        rdfs:seeAlso <https://material.io/components/navigation-drawer> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#NavigationRail
+###  https://ekgf.github.io/o-ux/component#NavigationRail
 ekgux:NavigationRail rdf:type owl:Class ;
                      rdfs:subClassOf ekgux:NavigationComponent ;
                      <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -344,7 +347,7 @@ When users transition between screen sizes and devices, the rail can also comple
                      rdfs:seeAlso <https://material.io/components/navigation-rail> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#ProgressIndicator
+###  https://ekgf.github.io/o-ux/component#ProgressIndicator
 ekgux:ProgressIndicator rdf:type owl:Class ;
                         rdfs:subClassOf ekgux:TemporarySurface ;
                         <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -352,14 +355,14 @@ ekgux:ProgressIndicator rdf:type owl:Class ;
                         rdfs:seeAlso <https://material.io/components/progress-indicators> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Session
+###  https://ekgf.github.io/o-ux/component#Session
 ekgux:Session rdf:type owl:Class ;
               rdfs:subClassOf ekgux:ModelComponent ;
               <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
               rdfs:label "Session"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#SideSheet
+###  https://ekgf.github.io/o-ux/component#SideSheet
 ekgux:SideSheet rdf:type owl:Class ;
                 rdfs:subClassOf ekgux:Surface ;
                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -367,7 +370,7 @@ ekgux:SideSheet rdf:type owl:Class ;
                 rdfs:seeAlso <https://material.io/components/sheets-side#usage> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#SnackBar
+###  https://ekgf.github.io/o-ux/component#SnackBar
 ekgux:SnackBar rdf:type owl:Class ;
                rdfs:subClassOf ekgux:TemporarySurface ;
                <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -376,20 +379,20 @@ ekgux:SnackBar rdf:type owl:Class ;
                rdfs:seeAlso <https://material.io/components/snackbars> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#StoryMenu
+###  https://ekgf.github.io/o-ux/component#StoryMenu
 ekgux:StoryMenu rdf:type owl:Class ;
                 rdfs:subClassOf ekgux:Menu ;
                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Surface
+###  https://ekgf.github.io/o-ux/component#Surface
 ekgux:Surface rdf:type owl:Class ;
               rdfs:subClassOf ekgux:ViewComponent ;
               <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
               rdfs:label "Surface"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#Tab
+###  https://ekgf.github.io/o-ux/component#Tab
 ekgux:Tab rdf:type owl:Class ;
           rdfs:subClassOf ekgux:Element ;
           <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -406,7 +409,7 @@ Tabs can be paired with components like top app bars, or nested in components li
                        <https://material.io/components/tabs> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#TabLayout
+###  https://ekgf.github.io/o-ux/component#TabLayout
 ekgux:TabLayout rdf:type owl:Class ;
                 rdfs:subClassOf ekgux:Surface ;
                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -415,14 +418,14 @@ ekgux:TabLayout rdf:type owl:Class ;
                              <https://material.io/components/tabs/android#using-tabs> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#TemporarySurface
+###  https://ekgf.github.io/o-ux/component#TemporarySurface
 ekgux:TemporarySurface rdf:type owl:Class ;
                        rdfs:subClassOf ekgux:Surface ;
                        <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
                        rdfs:label "Temporary Service"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#TextField
+###  https://ekgf.github.io/o-ux/component#TextField
 ekgux:TextField rdf:type owl:Class ;
                 rdfs:subClassOf ekgux:Element ;
                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -430,7 +433,7 @@ ekgux:TextField rdf:type owl:Class ;
                 rdfs:seeAlso <https://material.io/components/text-fields> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#TopAppBar
+###  https://ekgf.github.io/o-ux/component#TopAppBar
 ekgux:TopAppBar rdf:type owl:Class ;
                 rdfs:subClassOf ekgux:AppBar ;
                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -443,7 +446,7 @@ It can transform into a contextual action bar."""@en ;
                 rdfs:seeAlso <https://material.io/components/app-bars-top> .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#UseCases
+###  https://ekgf.github.io/o-ux/component#UseCases
 ekgux:UseCases rdf:type owl:Class ;
                rdfs:subClassOf ekgux:ModelComponent ;
                <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
@@ -459,14 +462,14 @@ in the user interface that may or may not be available to the current user."""@e
                rdfs:label "Use Cases"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#User
+###  https://ekgf.github.io/o-ux/component#User
 ekgux:User rdf:type owl:Class ;
            rdfs:subClassOf ekgux:ModelComponent ;
            <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
            rdfs:label "User"@en .
 
 
-###  https://ekgf.github.io/o-ux/ontology.owl#ViewComponent
+###  https://ekgf.github.io/o-ux/component#ViewComponent
 ekgux:ViewComponent rdf:type owl:Class ;
                     rdfs:subClassOf ekgux:Component ;
                     <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
