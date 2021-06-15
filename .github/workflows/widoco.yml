@@ -78,8 +78,8 @@ jobs:
           cd html
           rm readme.md
           find .
-          grep -RIl 'index_en.html' | xargs sed -i 's/index_en.html/index.html/g'
-          mv index_en.html index.html
+          grep -RIl 'index-en.html' | xargs sed -i 's/index-en.html/index.html/g'
+          mv index-en.html index.html
           find .
 
       - name: Deploy site
