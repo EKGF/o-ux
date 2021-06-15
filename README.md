@@ -1,2 +1,0 @@
-# o-ux
-UX Ontology

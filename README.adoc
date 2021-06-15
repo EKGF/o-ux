@@ -1,0 +1,35 @@
+= o-ux
+
+Ontologies for the EKG/UX.
+
+== License
+
+image:https://img.shields.io/github/license/EKGF/o-ux.svg[link="http://creativecommons.org/licenses/by-sa/4.0/"]
+
+This work is licensed under a
+link:http://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 International License].
+
+== Component Ontology
+
+The core concept in the EKG/UX Component Ontology is the class Component which
+represents the information that is needed for a given user interface (or report) component.
+
+These Components form a tree-like structure where a parent Component
+can hold multiple child Components that are assumed to be shown by
+a user interface or report generator in the space -- or "screen real estate" -- occupied
+by the parent Component.
+
+Many of the names of the various components are inspired by Google's Material Design
+concepts: https://material.io/components
+
+However, although many Components as they exist in the EKG will have
+a one-on-one relationship with a visible component on the screen (or
+on a report), this does not always have to be the case.
+
+Some Components in the user interface will have many more sub-components, there is no
+hard requirement that they all have to be defined in the EKG as well.
+
+This is meant to be a flexible structure.
+
+In theory, a legacy React application for instance may be represented as just one
+top level Component in the EKG, in that sense it woud be a "black box" from the EKG's perspective.
