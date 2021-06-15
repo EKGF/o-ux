@@ -63,7 +63,7 @@ jobs:
       - name: Create widoco config
         uses: DamianReeves/write-file-action@v1.0
         with:
-          path: './config.properties'
+          path: './config/config.properties'
           write-mode: append
           contents: |
             #echo "ontologyName=Test
@@ -101,10 +101,14 @@ jobs:
       #
       - name: Run Widoco
         run: |
+          echo "Config Properties:"
+          cat config/config.properties
+          echo "Root Directory:"
           ls -al
+          echo "Start Widoco:"
           java \
             -jar widoco.jar \
-            -confFile config.properties \
+            -confFile config/config.properties \
             -ontFile ux-component.owl \
             -outFolder ./html \
             -rewriteAll \
