@@ -7,6 +7,8 @@
 @base <https://ekgf.github.io/o-ux/ontology.owl#> .
 
 <https://ekgf.github.io/o-ux/ontology.owl#> rdf:type owl:Ontology ;
+                                             <http://purl.org/dc/elements/1.1/date> "2021-06-15" ;
+                                             <http://purl.org/dc/elements/1.1/title> "The EKG/UX Component Ontology" ;
                                              rdfs:comment """The core concept in the EKG/UX Component Ontology is the class Component which represents the information that is needed for a given user interface (or report) component.
 
 These Components form a tree-like structure where a parent Component
@@ -22,7 +24,7 @@ in the user interface will have many more sub-components, there is no
 hard requirement that they all have to be defined in the EKG as well.
 
 This is meant to be a flexible structure. In theory, a legacy React application for instance may be represented as just one top level Component in the EKG, in that sense it woud be a \"black box\" from the EKG's perspective."""@en ;
-                                             rdfs:label "The EKG/UX Module Ontology"@en .
+                                             rdfs:label "The EKG/UX Component Ontology"@en .
 
 #################################################################
 #    Annotation properties
@@ -30,6 +32,14 @@ This is meant to be a flexible structure. In theory, a legacy React application 
 
 ###  http://purl.org/dc/elements/1.1/creator
 <http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
