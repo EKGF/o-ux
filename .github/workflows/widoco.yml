@@ -74,12 +74,23 @@ jobs:
             -rewriteAll \
             -ignoreIndividuals \
             -doNotDisplaySerializations \
-            -uniteSections
+            -uniteSections \
+            -oops \
+            -webVowl \
+            -licensius
+
+      - name: Do some renames
+        run: |
+          cp LICENSE ./html
           cd html
           rm readme.md
+          echo "Before the renames:"
           find .
           grep -RIl 'index-en.html' | xargs sed -i 's/index-en.html/index.html/g'
+          grep -RIl 'ontology.ttl' | xargs sed -i 's/ontology.ttl/ontology.owl/g'
           mv index-en.html index.html
+          mv ontology.ttl ontology.owl
+          echo "After the renames:"
           find .
 
       - name: Deploy site
