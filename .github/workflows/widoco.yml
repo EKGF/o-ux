@@ -67,12 +67,12 @@ jobs:
         run: |
             mkdir config || true
             echo "ontologyPrefix=ekgux" > config/config.properties
-            #echo "ontologyNamespaceURI=http://purl.org/net/p-plan#"
+            echo "ontologyNamespaceURI=https://ekgf.github.io/o-ux/ontology.owl#" >> config/config.properties
             echo "dateOfRelease=$(date '+%d %B %Y')" >> config/config.properties
-            #echo "thisVersionURI=http://purl.org/net/p-plan"
-            #echo "latestVersionURI=http://example.org/latestVersion
+            echo "thisVersionURI=https://ekgf.github.io/o-ux/ontology.owl#" >> config/config.properties
+            echo "latestVersionURI=https://ekgf.github.io/o-ux/ontology.owl#" >> config/config.properties
             #echo "previousVersionURI=http://example.org/previousVersion
-            #echo "ontologyRevisionNumber=1.0
+            echo "ontologyRevisionNumber=0.1" >> config/config.properties
             #echo "authors=First Author;Second Author
             #echo "authorsURI=http://example.org/author1;http://example.org/author2
             echo "authorsInstitution=agnos.ai;EKFG" >> config/config.properties
@@ -112,11 +112,9 @@ jobs:
             -outFolder ./html \
             -rewriteAll \
             -ignoreIndividuals \
-            -doNotDisplaySerializations \
             -uniteSections \
             -oops \
-            -webVowl \
-            -licensius
+            -webVowl
 
       - name: Do some renames
         run: |
@@ -132,6 +130,8 @@ jobs:
           grep -RiIl 'OOPSEvaluation/OOPSeval' | xargs sed -i 's@OOPSEvaluation/OOPSeval@OOPSevaluation/oopsEval@g'
           mv index-en.html index.html
           mv ontology.ttl ontology.owl
+          echo "Now also copy the ontology file to 'component' so that the URL https://ekgf.github.io/o-ux/component# works"
+          cp ontology.owl component
           echo "After the renames:"
           find .
 
