@@ -60,6 +60,42 @@ jobs:
           target: "widoco.jar"
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Create widoco config
+        uses: DamianReeves/write-file-action
+        with:
+          path: './config.properties'
+          write-mode: append
+          contents: |
+            #echo "ontologyName=Test
+            echo "ontologyPrefix=ekgux"
+            #echo "ontologyNamespaceURI=http://purl.org/net/p-plan#"
+            echo "dateOfRelease=$(date '+%d %B %Y')"
+            #echo "thisVersionURI=http://purl.org/net/p-plan"
+            #echo "latestVersionURI=http://example.org/latestVersion
+            #echo "previousVersionURI=http://example.org/previousVersion
+            #echo "ontologyRevisionNumber=1.0
+            #echo "authors=First Author;Second Author
+            #echo "authorsURI=http://example.org/author1;http://example.org/author2
+            echo "authorsInstitution=agnos.ai;EKFG"
+            #echo "contributors=First contributor;Second contributor
+            #echo "contributorsURI=http://example.org/contributor1;http://example.org/contributor2
+            #echo "contributorsInstitution=First contributor institution;Second contributor institution
+            echo "publisher=EKGF"
+            echo "publisherURI=https://ekgf.org"
+            #echo "importedOntologyNames=Imported Ontology 1; Imported Ontology 2
+            #echo "importedOntologyURIs=http://example.org/test11; http://example.org/test22
+            #echo "extendedOntologyNames=test1; test2
+            #echo "extendedOntologyURIs=http://example.org/test1; http://example.org/test2
+            echo "licenseName=Creative Commons Attribution-ShareAlike 4.0 International License"
+            echo "licenseURI=http://creativecommons.org/licenses/by-sa/4.0/"
+            echo "licenseIconURL=https://img.shields.io/github/license/EKGF/o-ux.svg"
+            echo "citeAs=EKG/UX Component Ontology"
+            echo "status=Ontology Draft"
+            #echo "RDFXMLSerialization=https://ekgf.github.io/o-ux/ontology.xxx"
+            echo "TurtleSerialization=https://ekgf.github.io/o-ux/ontology.owl"
+            echo "N3Serialization=https://ekgf.github.io/o-ux/ontology.n3"
+            echo "JSONLDSerialization=https://ekgf.github.io/o-ux/ontology.json"
+
       #
       # Run widoco
       #
@@ -68,9 +104,9 @@ jobs:
           ls -al
           java \
             -jar widoco.jar \
+            -confFile config.properties \
             -ontFile ux-component.owl \
             -outFolder ./html \
-            -getOntologyMetadata \
             -rewriteAll \
             -ignoreIndividuals \
             -doNotDisplaySerializations \
@@ -86,9 +122,11 @@ jobs:
           rm readme.md
           echo "Before the renames:"
           find .
+          echo "Rename index-en.html to index.html:"
           grep -RIl 'index-en.html' | xargs sed -i 's/index-en.html/index.html/g'
           # grep -RIl 'ontology.ttl' | xargs sed -i 's/ontology.ttl/ontology.owl/g'
-          grep -RIl 'OOPSEvaluation/OOPSeval' | xargs sed -i 's@OOPSEvaluation/OOPSeval@OOPSevaluation/oopsEval@g'
+          echo "Rename OOPSEvaluation/OOPSeval to OOPSevaluation/oopsEval:"
+          grep -RiIl 'OOPSEvaluation/OOPSeval' | xargs sed -i 's@OOPSEvaluation/OOPSeval@OOPSevaluation/oopsEval@g'
           mv index-en.html index.html
           mv ontology.ttl ontology.owl
           echo "After the renames:"
