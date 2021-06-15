@@ -75,7 +75,7 @@ jobs:
             -ignoreIndividuals \
             -doNotDisplaySerializations \
             -uniteSections
-          find docs
+          find html
 
       - name: Deploy site
         uses: JamesIves/github-pages-deploy-action@4.1.4
