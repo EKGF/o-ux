@@ -75,7 +75,12 @@ jobs:
             -ignoreIndividuals \
             -doNotDisplaySerializations \
             -uniteSections
-          find html
+          cd html
+          rm readme.md
+          find .
+          grep -RIl 'index_en.html' | xargs sed -i 's/index_en.html/index.html/g'
+          mv index_en.html index.html
+          find .
 
       - name: Deploy site
         uses: JamesIves/github-pages-deploy-action@4.1.4
