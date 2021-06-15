@@ -1,0 +1,425 @@
+@prefix : <https://ekgf.org/ontology/ux-component#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://ekgf.org/ontology/ux-component> .
+
+<https://ekgf.org/ontology/ux-component> rdf:type owl:Ontology ;
+                                          rdfs:comment """The core concept in the EKG/UX Component Ontology is the class Component which represents the information that is needed for a given user interface (or report) component.
+
+These Components form a tree-like structure where a parent Component
+can hold multiple child Components that are assumed to be shown by
+a user interface or report generator in the space -- or \"screen real estate\" -- occupied by the parent Component.
+
+Many of the names of the various components are inspired by Google's Material Design concepts: https://material.io/components
+
+However, although many Components as they exist in the EKG will have
+a one-on-one relationship with a gisible component on the screen (or
+on a report), this does not always have to be the case. Some Components
+in the user interface will have many more sub-components, there is no
+hard requirement that they all have to be defined in the EKG as well.
+
+This is meant to be a flexible structure. In theory, a legacy React application for instance may be represented as just one top level Component in the EKG, in that sense it woud be a \"black box\" from the EKG's perspective."""@en ;
+                                          rdfs:label "The EKG/UX Module Ontology"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://ekgf.org/ontology/ux-component/AnonymousUser
+<https://ekgf.org/ontology/ux-component/AnonymousUser> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <https://ekgf.org/ontology/ux-component/User> ;
+                                                       owl:disjointWith <https://ekgf.org/ontology/ux-component/NamedUser> ;
+                                                       <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+
+
+###  https://ekgf.org/ontology/ux-component/AppBar
+<https://ekgf.org/ontology/ux-component/AppBar> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Surface> ;
+                                                <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                rdfs:comment """The top app bar displays information and actions relating to the current screen.
+
+A bottom app bar displays navigation and key actions at the bottom of mobile screens."""@en ;
+                                                rdfs:seeAlso "https://material.io/components/app-bars-bottom"^^xsd:anyURI ,
+                                                             "https://material.io/components/app-bars-top"^^xsd:anyURI .
+
+
+###  https://ekgf.org/ontology/ux-component/AppNavigator
+<https://ekgf.org/ontology/ux-component/AppNavigator> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <https://ekgf.org/ontology/ux-component/NavigationComponent> ;
+                                                      <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                      rdfs:comment """A generic component that allows a user to navigator to other Apps or
+primary destinations in the existing App supporting:
+
+- NavigationDrawer
+- BottomNavigationBar (for up to 3 destinations)
+- NavigationRail (for up to 7 destinations)"""@en .
+
+
+###  https://ekgf.org/ontology/ux-component/Backdrop
+<https://ekgf.org/ontology/ux-component/Backdrop> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Surface> ;
+                                                  <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                  rdfs:comment "A backdrop appears behind all other surfaces in an app, displaying contextual and actionable content."@en ;
+                                                  rdfs:seeAlso <https://material.io/components/backdrop> .
+
+
+###  https://ekgf.org/ontology/ux-component/Banner
+<https://ekgf.org/ontology/ux-component/Banner> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://ekgf.org/ontology/ux-component/TemporarySurface> ;
+                                                <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                rdfs:comment "A banner displays a prominent message and related optional actions."@en ;
+                                                rdfs:seeAlso <https://material.io/components/banners> .
+
+
+###  https://ekgf.org/ontology/ux-component/BottomAppBar
+<https://ekgf.org/ontology/ux-component/BottomAppBar> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <https://ekgf.org/ontology/ux-component/AppBar> ;
+                                                      owl:disjointWith <https://ekgf.org/ontology/ux-component/TopAppBar> ;
+                                                      <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                      rdfs:comment """A bottom app bar displays navigation and key actions at the bottom of mobile screens.
+
+Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button."""@en ;
+                                                      rdfs:seeAlso <https://material.io/components/app-bars-bottom> .
+
+
+###  https://ekgf.org/ontology/ux-component/BottomNavigationBar
+<https://ekgf.org/ontology/ux-component/BottomNavigationBar> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <https://ekgf.org/ontology/ux-component/NavigationComponent> ;
+                                                             <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                             rdfs:comment """Bottom navigation bars allow movement between primary destinations in an app.
+
+Bottom navigation bars display three to five destinations at the bottom of a screen. Each destination is represented by an icon and an optional text label. When a bottom navigation icon is tapped, the user is taken to the top-level navigation destination associated with that icon."""@en ;
+                                                             rdfs:seeAlso <https://material.io/components/bottom-navigation> .
+
+
+###  https://ekgf.org/ontology/ux-component/BottomSheet
+<https://ekgf.org/ontology/ux-component/BottomSheet> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Surface> ;
+                                                     <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                     rdfs:seeAlso <https://material.io/components/sheets-bottom> .
+
+
+###  https://ekgf.org/ontology/ux-component/Button
+<https://ekgf.org/ontology/ux-component/Button> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Element> ;
+                                                <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                rdfs:comment "Buttons allow users to take actions, and make choices, with a single tap."@en ;
+                                                rdfs:seeAlso <https://material.io/components/buttons> .
+
+
+###  https://ekgf.org/ontology/ux-component/Canvas
+<https://ekgf.org/ontology/ux-component/Canvas> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Surface> ;
+                                                <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+
+
+###  https://ekgf.org/ontology/ux-component/Card
+<https://ekgf.org/ontology/ux-component/Card> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Surface> ;
+                                              <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                              rdfs:comment """Cards contain content and actions about a single subject.
+
+Cards are surfaces that display content and actions on a single topic.
+
+They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy."""@en ;
+                                              rdfs:seeAlso <https://material.io/components/cards> .
+
+
+###  https://ekgf.org/ontology/ux-component/Checkbox
+<https://ekgf.org/ontology/ux-component/Checkbox> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Element> ;
+                                                  <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                  rdfs:seeAlso <https://material.io/components/checkboxes> .
+
+
+###  https://ekgf.org/ontology/ux-component/Chip
+<https://ekgf.org/ontology/ux-component/Chip> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Element> ;
+                                              <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                              rdfs:seeAlso <https://material.io/components/chips> .
+
+
+###  https://ekgf.org/ontology/ux-component/Component
+<https://ekgf.org/ontology/ux-component/Component> rdf:type owl:Class ;
+                                                   <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+
+
+###  https://ekgf.org/ontology/ux-component/DataTable
+<https://ekgf.org/ontology/ux-component/DataTable> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Surface> ;
+                                                   <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                   rdfs:seeAlso <https://material.io/components/data-tables> .
+
+
+###  https://ekgf.org/ontology/ux-component/DatapointMenu
+<https://ekgf.org/ontology/ux-component/DatapointMenu> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Menu> ;
+                                                       owl:disjointWith <https://ekgf.org/ontology/ux-component/StoryMenu> ;
+                                                       <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+
+
+###  https://ekgf.org/ontology/ux-component/Dialog
+<https://ekgf.org/ontology/ux-component/Dialog> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Surface> ;
+                                                <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                rdfs:comment """Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
+
+A dialog is a type of modal window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.
+
+Dialogs are purposefully interruptive, so they should be used sparingly.
+
+Dialogs should be used for:
+
+- Errors that block an app’s normal operation
+- Critical information that requires a specific user task, decision, or acknowledgement"""@en ;
+                                                rdfs:seeAlso <https://material.io/components/dialogs> .
+
+
+###  https://ekgf.org/ontology/ux-component/Element
+<https://ekgf.org/ontology/ux-component/Element> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://ekgf.org/ontology/ux-component/ViewComponent> ;
+                                                 owl:disjointWith <https://ekgf.org/ontology/ux-component/Surface> ;
+                                                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+
+
+###  https://ekgf.org/ontology/ux-component/ImageList
+<https://ekgf.org/ontology/ux-component/ImageList> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Element> ;
+                                                   <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                   rdfs:seeAlso <https://material.io/components/image-lists> .
+
+
+###  https://ekgf.org/ontology/ux-component/LandingThing
+<https://ekgf.org/ontology/ux-component/LandingThing> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <https://ekgf.org/ontology/ux-component/ModelComponent> ;
+                                                      <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                      rdfs:comment """The LandingThing is the object -- or Thing -- that the user landed on, its EKG/IRI is the current browser IRI.
+
+Other components may query the LandingThing-component for additional information such as its types (rdf:type).
+
+For instance, the UseCases-component may use these types to query
+the EKG for all use cases supported for the given user and the given LandingThing."""@en .
+
+
+###  https://ekgf.org/ontology/ux-component/List
+<https://ekgf.org/ontology/ux-component/List> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Element> ;
+                                              <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                              rdfs:seeAlso <https://material.io/components/lists> .
+
+
+###  https://ekgf.org/ontology/ux-component/Menu
+<https://ekgf.org/ontology/ux-component/Menu> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://ekgf.org/ontology/ux-component/TemporarySurface> ;
+                                              <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                              rdfs:comment """Menus display a list of choices on temporary surfaces.
+
+A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control."""@en ;
+                                              rdfs:seeAlso "https://material.io/components/menus"^^xsd:anyURI .
+
+
+###  https://ekgf.org/ontology/ux-component/ModelComponent
+<https://ekgf.org/ontology/ux-component/ModelComponent> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Component> ;
+                                                        owl:disjointWith <https://ekgf.org/ontology/ux-component/ViewComponent> ;
+                                                        <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                        rdfs:comment "A ModelComponent is an active component that manages a data structure in the browser (or a reporting engine) to be used by ViewComponents."@en .
+
+
+###  https://ekgf.org/ontology/ux-component/NamedUser
+<https://ekgf.org/ontology/ux-component/NamedUser> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://ekgf.org/ontology/ux-component/User> ;
+                                                   <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+
+
+###  https://ekgf.org/ontology/ux-component/NavigationComponent
+<https://ekgf.org/ontology/ux-component/NavigationComponent> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Surface> ;
+                                                             <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                             rdfs:comment "Navigation Components allow movement to primary destinations in an App."@en .
+
+
+###  https://ekgf.org/ontology/ux-component/NavigationDestinations
+<https://ekgf.org/ontology/ux-component/NavigationDestinations> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <https://ekgf.org/ontology/ux-component/ModelComponent> ;
+                                                                <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                                rdfs:comment """NavigationDestinations collects all primary destinations that the user can navigate too.
+
+To be used in conjunction with NavigationComponent."""@en .
+
+
+###  https://ekgf.org/ontology/ux-component/NavigationDrawer
+<https://ekgf.org/ontology/ux-component/NavigationDrawer> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <https://ekgf.org/ontology/ux-component/NavigationComponent> ;
+                                                          <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                          rdfs:comment """Navigation drawers provide access to destinations in your app.
+
+Navigation drawers provide access to destinations and app functionality, such as switching accounts. They can either be permanently on-screen or controlled by a navigation menu icon.
+
+Navigation drawers are recommended for:
+
+- Apps with five or more top-level destinations
+- Apps with two or more levels of navigation hierarchy
+- Quick navigation between unrelated destinations"""@en ;
+                                                          rdfs:seeAlso <https://material.io/components/navigation-drawer> .
+
+
+###  https://ekgf.org/ontology/ux-component/NavigationRail
+<https://ekgf.org/ontology/ux-component/NavigationRail> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <https://ekgf.org/ontology/ux-component/NavigationComponent> ;
+                                                        <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                        rdfs:comment """Navigation rails provide ergonomic movement between primary destinations in apps.
+
+The rail is a side navigation component that displays three to seven app destinations and, optionally, a Floating Action Button. 
+Each destination is represented by an icon and a text label.
+
+The rail can function on its own at larger screen sizes, such as desktop and tablet. 
+When users transition between screen sizes and devices, the rail can also complement other navigation components, such as bottom navigation."""@en ;
+                                                        rdfs:seeAlso <https://material.io/components/navigation-rail> .
+
+
+###  https://ekgf.org/ontology/ux-component/ProgressIndicator
+<https://ekgf.org/ontology/ux-component/ProgressIndicator> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <https://ekgf.org/ontology/ux-component/TemporarySurface> ;
+                                                           <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                           rdfs:seeAlso <https://material.io/components/progress-indicators> .
+
+
+###  https://ekgf.org/ontology/ux-component/Session
+<https://ekgf.org/ontology/ux-component/Session> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://ekgf.org/ontology/ux-component/ModelComponent> ;
+                                                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+
+
+###  https://ekgf.org/ontology/ux-component/SideSheet
+<https://ekgf.org/ontology/ux-component/SideSheet> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Surface> ;
+                                                   <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                   rdfs:seeAlso <https://material.io/components/sheets-side#usage> .
+
+
+###  https://ekgf.org/ontology/ux-component/SnackBar
+<https://ekgf.org/ontology/ux-component/SnackBar> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <https://ekgf.org/ontology/ux-component/TemporarySurface> ;
+                                                  <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                  rdfs:comment "Snackbars provide brief messages about app processes at the bottom of the screen."@en ;
+                                                  rdfs:seeAlso <https://material.io/components/snackbars> .
+
+
+###  https://ekgf.org/ontology/ux-component/StoryMenu
+<https://ekgf.org/ontology/ux-component/StoryMenu> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Menu> ;
+                                                   <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+
+
+###  https://ekgf.org/ontology/ux-component/Surface
+<https://ekgf.org/ontology/ux-component/Surface> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://ekgf.org/ontology/ux-component/ViewComponent> ;
+                                                 <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+
+
+###  https://ekgf.org/ontology/ux-component/Tab
+<https://ekgf.org/ontology/ux-component/Tab> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Element> ;
+                                             <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                             rdfs:isDefinedBy """Tabs organize content across different screens, data sets, and other interactions.
+
+Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.
+
+Each tab should contain content that is distinct from other tabs in a set. 
+For example, tabs can present different sections of news, different genres of music, or different themes of documents.
+
+Tabs can be paired with components like top app bars, or nested in components like cards and sheets."""@en ;
+                                             rdfs:seeAlso <https://ekgf.org/ontology/ux-component/TabLayout> ,
+                                                          <https://material.io/components/tabs> .
+
+
+###  https://ekgf.org/ontology/ux-component/TabLayout
+<https://ekgf.org/ontology/ux-component/TabLayout> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Surface> ;
+                                                   <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                   rdfs:seeAlso <https://ekgf.org/ontology/ux-component/Tab> ,
+                                                                <https://material.io/components/tabs/android#using-tabs> .
+
+
+###  https://ekgf.org/ontology/ux-component/TemporarySurface
+<https://ekgf.org/ontology/ux-component/TemporarySurface> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Surface> ;
+                                                          <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+
+
+###  https://ekgf.org/ontology/ux-component/TextField
+<https://ekgf.org/ontology/ux-component/TextField> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Element> ;
+                                                   <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                   rdfs:seeAlso <https://material.io/components/text-fields> .
+
+
+###  https://ekgf.org/ontology/ux-component/TopAppBar
+<https://ekgf.org/ontology/ux-component/TopAppBar> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://ekgf.org/ontology/ux-component/AppBar> ;
+                                                   <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                   rdfs:comment """The top app bar displays information and actions relating to the current screen.
+
+The top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.
+
+It can transform into a contextual action bar."""@en ;
+                                                   rdfs:seeAlso <https://material.io/components/app-bars-top> .
+
+
+###  https://ekgf.org/ontology/ux-component/UseCases
+<https://ekgf.org/ontology/ux-component/UseCases> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <https://ekgf.org/ontology/ux-component/ModelComponent> ;
+                                                  <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                  rdfs:comment """The UseCases component collects all current use cases from the EKG that the current User could have access to given the current LandingThing.
+
+For each supported Use Case it knows the EKG/IRI, its label and the Personas that the current user has.
+
+Other components can ask the UseCases-component for more details
+about whether a given Story in a given UseCase is supported for the
+given Persona.
+That information could then be used to show or not show certain elements
+in the user interface that may or may not be available to the current user."""@en .
+
+
+###  https://ekgf.org/ontology/ux-component/User
+<https://ekgf.org/ontology/ux-component/User> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://ekgf.org/ontology/ux-component/ModelComponent> ;
+                                              <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+
+
+###  https://ekgf.org/ontology/ux-component/ViewComponent
+<https://ekgf.org/ontology/ux-component/ViewComponent> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <https://ekgf.org/ontology/ux-component/Component> ;
+                                                       <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> ;
+                                                       rdfs:seeAlso <https://en.wikipedia.org/wiki/Model–view–controller> ,
+                                                                    """A ViewComponent is a component that ultimately can occupy some screen real-estate.
+
+The term View comes from the MVC (Model, View, Controller) concept."""@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://ekgf.org/ontology/ux-component/AppNavigator>
+                <https://ekgf.org/ontology/ux-component/BottomNavigationBar>
+                <https://ekgf.org/ontology/ux-component/NavigationDrawer>
+                <https://ekgf.org/ontology/ux-component/NavigationRail>
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
