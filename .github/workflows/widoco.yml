@@ -68,7 +68,7 @@ jobs:
           ls -al
           java \
             -jar widoco.jar \
-            -ontFile ux-component.ttl \
+            -ontFile ux-component.owl \
             -outFolder ./html \
             -getOntologyMetadata \
             -rewriteAll \
