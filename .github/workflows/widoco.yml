@@ -14,12 +14,14 @@ jobs:
       #
       # Checkout the repo
       #
-      - uses: actions/checkout@v2
+      - name: Checkout the repo
+        uses: actions/checkout@v2
 
       #
       # Install the right JVM to run Widoco with
       #
-      - uses: actions/setup-java@v2
+      - name: Install the JVM
+        uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
           java-version: '8'
@@ -27,7 +29,8 @@ jobs:
       #
       # Get the version number of the latest widoco jar
       #
-      - id: widocoRelease
+      - name: Get widoco version
+        id: widocoRelease
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           owner: dgarijo
@@ -37,7 +40,8 @@ jobs:
       #
       # Remove the 'v' from the Widoco release number (to be used to contruct the file name of the jar)
       #
-      - id: widocoRelease2
+      - name: Strip v from version
+        id: widocoRelease2
         run: |
           echo "widoco release: ${{ steps.widocoRelease.outputs.release }}"
           releaseWithVictor="${{ steps.widocoRelease.outputs.release }}"
@@ -47,7 +51,8 @@ jobs:
       #
       # Download the latest widoco jar
       #
-      - uses: dsaltares/fetch-gh-release-asset@master
+      - name: Download widoco.jar
+        uses: dsaltares/fetch-gh-release-asset@master
         with:
           repo: "dgarijo/WIDOCO"
           version: "tags/${{ steps.widocoRelease.outputs.release }}"
@@ -58,7 +63,8 @@ jobs:
       #
       # Run widoco
       #
-      - run: |
+      - name: Run Widoco
+        run: |
           ls -al
           java \
             -jar widoco.jar \
@@ -69,4 +75,11 @@ jobs:
             -ignoreIndividuals \
             -doNotDisplaySerializations \
             -uniteSections
-          find .
+          find docs
+
+      - name: Deploy site
+          uses: JamesIves/github-pages-deploy-action@4.1.4
+          with:
+            branch: gh-pages # The branch the action should deploy to.
+            folder: html # The folder the action should deploy.
+            single-commit: true
