@@ -1,0 +1,21 @@
+on: push
+jobs:
+  widoco:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: widocoRelease
+          uses: pozetroninc/github-action-get-latest-release@master
+          with:
+            owner: dgarijo
+            repo: WIDOCO
+            excludes: prerelease, draft
+#      https://github.com/dgarijo/Widoco/releases/download/v1.4.14/widoco-1.4.14-jar-with-dependencies.jar
+      -
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt' # See 'Supported distributions' for available options
+          java-version: '11'
+      - run: |
+          echo widico release: ${{ steps.widocoRelease.outputs.release }}
+#      - run: java -cp java HelloWorldApp
