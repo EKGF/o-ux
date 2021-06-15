@@ -107,7 +107,7 @@ jobs:
           echo "Start Widoco:"
           java \
             -jar widoco.jar \
-            -confFile config/config.properties \
+            -getOntologyMetadata \
             -ontFile ux-component.owl \
             -outFolder ./html \
             -rewriteAll \
