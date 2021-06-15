@@ -23,8 +23,8 @@ jobs:
 
       - uses: actions/setup-java@v2
         with:
-          distribution: 'adopt' # See 'Supported distributions' for available options
-          java-version: '11'
+          distribution: 'zulu'
+          java-version: '8'
 
       - id: widocoRelease2
         run: |
