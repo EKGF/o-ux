@@ -88,6 +88,7 @@ jobs:
           find .
           grep -RIl 'index-en.html' | xargs sed -i 's/index-en.html/index.html/g'
           # grep -RIl 'ontology.ttl' | xargs sed -i 's/ontology.ttl/ontology.owl/g'
+          grep -RIl 'OOPSEvaluation/OOPSeval' | xargs sed -i 's@OOPSEvaluation/OOPSeval@OOPSevaluation/oopsEval@g'
           mv index-en.html index.html
           mv ontology.ttl ontology.owl
           echo "After the renames:"
