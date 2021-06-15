@@ -11,21 +11,32 @@ jobs:
   widoco:
     runs-on: ubuntu-latest
     steps:
+      #
+      # Checkout the repo
+      #
       - uses: actions/checkout@v2
 
+      #
+      # Install the right JVM to run Widoco with
+      #
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+
+      #
+      # Get the version number of the latest widoco jar
+      #
       - id: widocoRelease
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           owner: dgarijo
           repo: WIDOCO
           excludes: prerelease, draft
-#      https://github.com/dgarijo/Widoco/releases/download/v1.4.14/widoco-1.4.14-jar-with-dependencies.jar
 
-      - uses: actions/setup-java@v2
-        with:
-          distribution: 'zulu'
-          java-version: '8'
-
+      #
+      # Remove the 'v' from the Widoco release number (to be used to contruct the file name of the jar)
+      #
       - id: widocoRelease2
         run: |
           echo "widoco release: ${{ steps.widocoRelease.outputs.release }}"
@@ -33,6 +44,9 @@ jobs:
           releaseWithoutVictor="${releaseWithVictor/v/}"
           echo "::set-output name=release::${releaseWithoutVictor}"
 
+      #
+      # Download the latest widoco jar
+      #
       - uses: dsaltares/fetch-gh-release-asset@master
         with:
           repo: "dgarijo/WIDOCO"
@@ -41,6 +55,9 @@ jobs:
           target: "widoco.jar"
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      #
+      # Run widoco
+      #
       - run: |
           ls -al
           java \
@@ -52,3 +69,4 @@ jobs:
             -ignoreIndividuals \
             -doNotDisplaySerializations \
             -uniteSections
+          find .
