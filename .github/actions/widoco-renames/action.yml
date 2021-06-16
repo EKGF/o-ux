@@ -1,0 +1,28 @@
+name: 'Widoco Renames'
+description: 'Perform some renames after Widoco has run'
+inputs:
+  ontologyIRI:
+    description: 'Ontology IRI'
+    required: true
+    default: 'https://ekgf.github.io/yourrepo/ontology#'
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        cp LICENSE ./html
+        cd html
+        rm readme.md
+        echo "Before the renames:"
+        find .
+        echo "Rename index-en.html to index.html:"
+        grep -RIl 'index-en.html' | xargs sed -i 's/index-en.html/index.html/g'
+        echo "Rename OOPSEvaluation/OOPSeval to OOPSevaluation/oopsEval:"
+        grep -RiIl 'OOPSEvaluation/OOPSeval' | xargs sed -i 's@OOPSEvaluation/OOPSeval@OOPSevaluation/oopsEval@g'
+        mv index-en.html index.html
+        echo "Now also copy the ontology file to 'component' so that the URL ${{ inputs.ontologyIRI }} works"
+        cp ontology.ttl component
+        echo "After the renames:"
+        find .
+      shell: bash
+

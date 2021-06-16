@@ -1,0 +1,61 @@
+name: 'Widoco Config'
+description: 'Generate configuration for Widoco'
+inputs:
+  ontologyFile:
+    description: 'Ontology File'
+    required: true
+    default: 'ontology.ttl'
+  ontologyPrefix:
+    description: 'Ontology Prefix'
+    required: true
+    default: 'yourontology'
+  ontologyIRI:
+    description: 'Ontology IRI'
+    required: true
+    default: 'https://ekgf.github.io/yourrepo/ontology#'
+  revisionNumber:
+    description: 'Ontology Revision Number'
+    required: false
+    default: '0.1'
+  citeAs:
+    description: 'Ontology Title'
+    required: false
+    default: 'Your Ontology'
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        mkdir ./config || true
+        echo "ontologyPrefix=${{ inputs.ontologyPrefix }}" > config/config.properties
+        echo "ontologyNamespaceURI=${{ inputs.ontologyIRI }}" >> config/config.properties
+        echo "dateOfRelease=$(date '+%d %B %Y')" >> config/config.properties
+        echo "thisVersionURI=${{ inputs.ontologyIRI }}" >> config/config.properties
+        echo "latestVersionURI=${{ inputs.ontologyIRI }}" >> config/config.properties
+        #echo "previousVersionURI=http://example.org/previousVersion
+        echo "ontologyRevisionNumber=${{ inputs.revisionNumber }}" >> config/config.properties
+        #echo "authors=First Author;Second Author
+        #echo "authorsURI=http://example.org/author1;http://example.org/author2
+        echo "authorsInstitution=agnos.ai;EKFG" >> config/config.properties
+        #echo "contributors=First contributor;Second contributor
+        #echo "contributorsURI=http://example.org/contributor1;http://example.org/contributor2
+        #echo "contributorsInstitution=First contributor institution;Second contributor institution
+        echo "publisher=EKGF" >> config/config.properties
+        echo "publisherURI=https://ekgf.org" >> config/config.properties
+        #echo "importedOntologyNames=Imported Ontology 1; Imported Ontology 2
+        #echo "importedOntologyURIs=http://example.org/test11; http://example.org/test22
+        #echo "extendedOntologyNames=test1; test2
+        #echo "extendedOntologyURIs=http://example.org/test1; http://example.org/test2
+        echo "licenseName=Creative Commons Attribution-ShareAlike 4.0 International License" >> config/config.properties
+        echo "licenseURI=http://creativecommons.org/licenses/by-sa/4.0/" >> config/config.properties
+        echo "licenseIconURL=https://img.shields.io/github/license/EKGF/o-ux.svg" >> config/config.properties
+        echo "citeAs=${{ inputs.citeAs }}" >> config/config.properties
+        echo "status=Ontology Draft" >> config/config.properties
+        echo "RDFXMLSerialization=https://ekgf.github.io/o-ux/ontology.owl" >> config/config.properties
+        echo "TurtleSerialization=https://ekgf.github.io/o-ux/ontology.ttl" >> config/config.properties
+        echo "N3Serialization=https://ekgf.github.io/o-ux/ontology.n3" >> config/config.properties
+        echo "JSONLDSerialization=https://ekgf.github.io/o-ux/ontology.json" >> config/config.properties
+        echo "Config Properties:"
+        cat config/config.properties
+      shell: bash
+
