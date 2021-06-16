@@ -1,0 +1,10 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <> .
+<..\index.html> a prov:Entity;
+	 dc:title "The EKG/UX Component Ontology";
+	 prov:wasAttributedTo <http://orcid.org/0000-0003-2309-5068>;
+	 dc:creator <http://orcid.org/0000-0003-2309-5068>;
+	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+.

@@ -1,0 +1,373 @@
+<https://ekgf.github.io/o-ux/component#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://ekgf.github.io/o-ux/component#> <http://purl.org/dc/elements/1.1/creator> "http://orcid.org/0000-0003-2309-5068"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://ekgf.github.io/o-ux/component#> <http://purl.org/dc/elements/1.1/date> "2021-06-15" .
+<https://ekgf.github.io/o-ux/component#> <http://purl.org/dc/elements/1.1/title> "The EKG/UX Component Ontology" .
+<https://ekgf.github.io/o-ux/component#> <http://purl.org/dc/terms/rights> <https://ekgf.github.io/o-ux/LICENSE> .
+<https://ekgf.github.io/o-ux/component#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "ekgux" .
+<https://ekgf.github.io/o-ux/component#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "https://ekgf.github.io/o-ux/component#" .
+<https://ekgf.github.io/o-ux/component#> <http://www.w3.org/2000/01/rdf-schema#comment> "The core concept in the EKG/UX Component Ontology is the class Component which represents the information that is needed for a given user interface (or report) component.\n\nThese Components form a tree-like structure where a parent Component\ncan hold multiple child Components that are assumed to be shown by\na user interface or report generator in the space -- or \"screen real estate\" -- occupied by the parent Component.\n\nMany of the names of the various components are inspired by Google's Material Design concepts: https://material.io/components\n\nHowever, although many Components as they exist in the EKG will have\na one-on-one relationship with a gisible component on the screen (or\non a report), this does not always have to be the case. Some Components\nin the user interface will have many more sub-components, there is no\nhard requirement that they all have to be defined in the EKG as well.\n\nThis is meant to be a flexible structure. In theory, a legacy React application for instance may be represented as just one top level Component in the EKG, in that sense it woud be a \"black box\" from the EKG's perspective."@en .
+<https://ekgf.github.io/o-ux/component#> <http://www.w3.org/2000/01/rdf-schema#label> "The EKG/UX Component Ontology"@en .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# https://ekgf.github.io/o-ux/component#AnonymousUser
+<https://ekgf.github.io/o-ux/component#AnonymousUser> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#AnonymousUser> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#User> .
+<https://ekgf.github.io/o-ux/component#AnonymousUser> <http://www.w3.org/2002/07/owl#disjointWith> <https://ekgf.github.io/o-ux/component#NamedUser> .
+<https://ekgf.github.io/o-ux/component#AnonymousUser> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#AnonymousUser> <http://www.w3.org/2000/01/rdf-schema#label> "Anonymous User"@en .
+# 
+# https://ekgf.github.io/o-ux/component#AppBar
+<https://ekgf.github.io/o-ux/component#AppBar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#AppBar> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#AppBar> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#AppBar> <http://www.w3.org/2000/01/rdf-schema#comment> "The top app bar displays information and actions relating to the current screen.\n\nA bottom app bar displays navigation and key actions at the bottom of mobile screens."@en .
+<https://ekgf.github.io/o-ux/component#AppBar> <http://www.w3.org/2000/01/rdf-schema#label> "App Bar"@en .
+<https://ekgf.github.io/o-ux/component#AppBar> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://material.io/components/app-bars-bottom"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://ekgf.github.io/o-ux/component#AppBar> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://material.io/components/app-bars-top"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# https://ekgf.github.io/o-ux/component#AppNavigator
+<https://ekgf.github.io/o-ux/component#AppNavigator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#AppNavigator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#NavigationComponent> .
+<https://ekgf.github.io/o-ux/component#AppNavigator> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#AppNavigator> <http://www.w3.org/2000/01/rdf-schema#comment> "A generic component that allows a user to navigator to other Apps or\nprimary destinations in the existing App supporting:\n\n- NavigationDrawer\n- BottomNavigationBar (for up to 3 destinations)\n- NavigationRail (for up to 7 destinations)"@en .
+<https://ekgf.github.io/o-ux/component#AppNavigator> <http://www.w3.org/2000/01/rdf-schema#label> "App Navigator"@en .
+# 
+# https://ekgf.github.io/o-ux/component#Backdrop
+<https://ekgf.github.io/o-ux/component#Backdrop> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Backdrop> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#Backdrop> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Backdrop> <http://www.w3.org/2000/01/rdf-schema#comment> "A backdrop appears behind all other surfaces in an app, displaying contextual and actionable content."@en .
+<https://ekgf.github.io/o-ux/component#Backdrop> <http://www.w3.org/2000/01/rdf-schema#label> "Backdrop"@en .
+<https://ekgf.github.io/o-ux/component#Backdrop> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/backdrop> .
+# 
+# https://ekgf.github.io/o-ux/component#Banner
+<https://ekgf.github.io/o-ux/component#Banner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Banner> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#TemporarySurface> .
+<https://ekgf.github.io/o-ux/component#Banner> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Banner> <http://www.w3.org/2000/01/rdf-schema#comment> "A banner displays a prominent message and related optional actions."@en .
+<https://ekgf.github.io/o-ux/component#Banner> <http://www.w3.org/2000/01/rdf-schema#label> "Banner"@en .
+<https://ekgf.github.io/o-ux/component#Banner> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/banners> .
+# 
+# https://ekgf.github.io/o-ux/component#BottomAppBar
+<https://ekgf.github.io/o-ux/component#BottomAppBar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#BottomAppBar> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#AppBar> .
+<https://ekgf.github.io/o-ux/component#BottomAppBar> <http://www.w3.org/2002/07/owl#disjointWith> <https://ekgf.github.io/o-ux/component#TopAppBar> .
+<https://ekgf.github.io/o-ux/component#BottomAppBar> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#BottomAppBar> <http://www.w3.org/2000/01/rdf-schema#comment> "A bottom app bar displays navigation and key actions at the bottom of mobile screens.\n\nBottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button."@en .
+<https://ekgf.github.io/o-ux/component#BottomAppBar> <http://www.w3.org/2000/01/rdf-schema#label> "Bottom App Bar"@en .
+<https://ekgf.github.io/o-ux/component#BottomAppBar> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/app-bars-bottom> .
+# 
+# https://ekgf.github.io/o-ux/component#BottomNavigationBar
+<https://ekgf.github.io/o-ux/component#BottomNavigationBar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#BottomNavigationBar> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#NavigationComponent> .
+<https://ekgf.github.io/o-ux/component#BottomNavigationBar> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#BottomNavigationBar> <http://www.w3.org/2000/01/rdf-schema#comment> "Bottom navigation bars allow movement between primary destinations in an app.\n\nBottom navigation bars display three to five destinations at the bottom of a screen. Each destination is represented by an icon and an optional text label. When a bottom navigation icon is tapped, the user is taken to the top-level navigation destination associated with that icon."@en .
+<https://ekgf.github.io/o-ux/component#BottomNavigationBar> <http://www.w3.org/2000/01/rdf-schema#label> "Bottom Navigation Bar"@en .
+<https://ekgf.github.io/o-ux/component#BottomNavigationBar> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/bottom-navigation> .
+# 
+# https://ekgf.github.io/o-ux/component#BottomSheet
+<https://ekgf.github.io/o-ux/component#BottomSheet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#BottomSheet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#BottomSheet> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#BottomSheet> <http://www.w3.org/2000/01/rdf-schema#label> "Bottom Sheet"@en .
+<https://ekgf.github.io/o-ux/component#BottomSheet> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/sheets-bottom> .
+# 
+# https://ekgf.github.io/o-ux/component#Button
+<https://ekgf.github.io/o-ux/component#Button> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Button> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Element> .
+<https://ekgf.github.io/o-ux/component#Button> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Button> <http://www.w3.org/2000/01/rdf-schema#comment> "Buttons allow users to take actions, and make choices, with a single tap."@en .
+<https://ekgf.github.io/o-ux/component#Button> <http://www.w3.org/2000/01/rdf-schema#label> "Button"@en .
+<https://ekgf.github.io/o-ux/component#Button> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/buttons> .
+# 
+# https://ekgf.github.io/o-ux/component#Canvas
+<https://ekgf.github.io/o-ux/component#Canvas> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Canvas> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#Canvas> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Canvas> <http://www.w3.org/2000/01/rdf-schema#label> "Canvas"@en .
+# 
+# https://ekgf.github.io/o-ux/component#Card
+<https://ekgf.github.io/o-ux/component#Card> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Card> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#Card> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Card> <http://www.w3.org/2000/01/rdf-schema#comment> "Cards contain content and actions about a single subject.\n\nCards are surfaces that display content and actions on a single topic.\n\nThey should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy."@en .
+<https://ekgf.github.io/o-ux/component#Card> <http://www.w3.org/2000/01/rdf-schema#label> "Card"@en .
+<https://ekgf.github.io/o-ux/component#Card> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/cards> .
+# 
+# https://ekgf.github.io/o-ux/component#Checkbox
+<https://ekgf.github.io/o-ux/component#Checkbox> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Checkbox> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Element> .
+<https://ekgf.github.io/o-ux/component#Checkbox> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Checkbox> <http://www.w3.org/2000/01/rdf-schema#label> "Checkbox"@en .
+<https://ekgf.github.io/o-ux/component#Checkbox> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/checkboxes> .
+# 
+# https://ekgf.github.io/o-ux/component#Chip
+<https://ekgf.github.io/o-ux/component#Chip> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Chip> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Element> .
+<https://ekgf.github.io/o-ux/component#Chip> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Chip> <http://www.w3.org/2000/01/rdf-schema#label> "Chip"@en .
+<https://ekgf.github.io/o-ux/component#Chip> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/chips> .
+# 
+# https://ekgf.github.io/o-ux/component#Component
+<https://ekgf.github.io/o-ux/component#Component> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Component> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Component> <http://www.w3.org/2000/01/rdf-schema#label> "Component"@en .
+# 
+# https://ekgf.github.io/o-ux/component#DataTable
+<https://ekgf.github.io/o-ux/component#DataTable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#DataTable> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#DataTable> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#DataTable> <http://www.w3.org/2000/01/rdf-schema#label> "Data Table"@en .
+<https://ekgf.github.io/o-ux/component#DataTable> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/data-tables> .
+# 
+# https://ekgf.github.io/o-ux/component#DatapointMenu
+<https://ekgf.github.io/o-ux/component#DatapointMenu> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#DatapointMenu> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Menu> .
+<https://ekgf.github.io/o-ux/component#DatapointMenu> <http://www.w3.org/2002/07/owl#disjointWith> <https://ekgf.github.io/o-ux/component#StoryMenu> .
+<https://ekgf.github.io/o-ux/component#DatapointMenu> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+# 
+# https://ekgf.github.io/o-ux/component#Dialog
+<https://ekgf.github.io/o-ux/component#Dialog> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Dialog> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#Dialog> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Dialog> <http://www.w3.org/2000/01/rdf-schema#comment> "Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.\n\nA dialog is a type of modal window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.\n\nDialogs are purposefully interruptive, so they should be used sparingly.\n\nDialogs should be used for:\n\n- Errors that block an app’s normal operation\n- Critical information that requires a specific user task, decision, or acknowledgement"@en .
+<https://ekgf.github.io/o-ux/component#Dialog> <http://www.w3.org/2000/01/rdf-schema#label> "Dialog"@en .
+<https://ekgf.github.io/o-ux/component#Dialog> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/dialogs> .
+# 
+# https://ekgf.github.io/o-ux/component#Element
+<https://ekgf.github.io/o-ux/component#Element> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Element> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#ViewComponent> .
+<https://ekgf.github.io/o-ux/component#Element> <http://www.w3.org/2002/07/owl#disjointWith> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#Element> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Element> <http://www.w3.org/2000/01/rdf-schema#label> "Element"@en .
+# 
+# https://ekgf.github.io/o-ux/component#ImageList
+<https://ekgf.github.io/o-ux/component#ImageList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#ImageList> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Element> .
+<https://ekgf.github.io/o-ux/component#ImageList> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#ImageList> <http://www.w3.org/2000/01/rdf-schema#label> "Image List"@en .
+<https://ekgf.github.io/o-ux/component#ImageList> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/image-lists> .
+# 
+# https://ekgf.github.io/o-ux/component#LandingThing
+<https://ekgf.github.io/o-ux/component#LandingThing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#LandingThing> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#ModelComponent> .
+<https://ekgf.github.io/o-ux/component#LandingThing> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#LandingThing> <http://www.w3.org/2000/01/rdf-schema#comment> "The LandingThing is the object -- or Thing -- that the user landed on, its EKG/IRI is the current browser IRI.\n\nOther components may query the LandingThing-component for additional information such as its types (rdf:type).\n\nFor instance, the UseCases-component may use these types to query\nthe EKG for all use cases supported for the given user and the given LandingThing."@en .
+<https://ekgf.github.io/o-ux/component#LandingThing> <http://www.w3.org/2000/01/rdf-schema#label> "Landing Thing"@en .
+# 
+# https://ekgf.github.io/o-ux/component#List
+<https://ekgf.github.io/o-ux/component#List> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#List> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Element> .
+<https://ekgf.github.io/o-ux/component#List> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#List> <http://www.w3.org/2000/01/rdf-schema#label> "List"@en .
+<https://ekgf.github.io/o-ux/component#List> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/lists> .
+# 
+# https://ekgf.github.io/o-ux/component#Menu
+<https://ekgf.github.io/o-ux/component#Menu> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Menu> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#TemporarySurface> .
+<https://ekgf.github.io/o-ux/component#Menu> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Menu> <http://www.w3.org/2000/01/rdf-schema#comment> "Menus display a list of choices on temporary surfaces.\n\nA menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control."@en .
+<https://ekgf.github.io/o-ux/component#Menu> <http://www.w3.org/2000/01/rdf-schema#label> "Menu"@en .
+<https://ekgf.github.io/o-ux/component#Menu> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://material.io/components/menus"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# https://ekgf.github.io/o-ux/component#ModelComponent
+<https://ekgf.github.io/o-ux/component#ModelComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#ModelComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Component> .
+<https://ekgf.github.io/o-ux/component#ModelComponent> <http://www.w3.org/2002/07/owl#disjointWith> <https://ekgf.github.io/o-ux/component#ViewComponent> .
+<https://ekgf.github.io/o-ux/component#ModelComponent> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#ModelComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A ModelComponent is an active component that manages a data structure in the browser (or a reporting engine) to be used by ViewComponents."@en .
+<https://ekgf.github.io/o-ux/component#ModelComponent> <http://www.w3.org/2000/01/rdf-schema#label> "Model Component"@en .
+# 
+# https://ekgf.github.io/o-ux/component#NamedUser
+<https://ekgf.github.io/o-ux/component#NamedUser> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#NamedUser> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#User> .
+<https://ekgf.github.io/o-ux/component#NamedUser> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#NamedUser> <http://www.w3.org/2000/01/rdf-schema#label> "Named User"@en .
+# 
+# https://ekgf.github.io/o-ux/component#NavigationComponent
+<https://ekgf.github.io/o-ux/component#NavigationComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#NavigationComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#NavigationComponent> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#NavigationComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "Navigation Components allow movement to primary destinations in an App."@en .
+<https://ekgf.github.io/o-ux/component#NavigationComponent> <http://www.w3.org/2000/01/rdf-schema#label> "Navigation Component"@en .
+# 
+# https://ekgf.github.io/o-ux/component#NavigationDestinations
+<https://ekgf.github.io/o-ux/component#NavigationDestinations> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#NavigationDestinations> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#ModelComponent> .
+<https://ekgf.github.io/o-ux/component#NavigationDestinations> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#NavigationDestinations> <http://www.w3.org/2000/01/rdf-schema#comment> "NavigationDestinations collects all primary destinations that the user can navigate too.\n\nTo be used in conjunction with NavigationComponent."@en .
+<https://ekgf.github.io/o-ux/component#NavigationDestinations> <http://www.w3.org/2000/01/rdf-schema#label> "Navigation Destinations"@en .
+# 
+# https://ekgf.github.io/o-ux/component#NavigationDrawer
+<https://ekgf.github.io/o-ux/component#NavigationDrawer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#NavigationDrawer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#NavigationComponent> .
+<https://ekgf.github.io/o-ux/component#NavigationDrawer> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#NavigationDrawer> <http://www.w3.org/2000/01/rdf-schema#comment> "Navigation drawers provide access to destinations in your app.\n\nNavigation drawers provide access to destinations and app functionality, such as switching accounts. They can either be permanently on-screen or controlled by a navigation menu icon.\n\nNavigation drawers are recommended for:\n\n- Apps with five or more top-level destinations\n- Apps with two or more levels of navigation hierarchy\n- Quick navigation between unrelated destinations"@en .
+<https://ekgf.github.io/o-ux/component#NavigationDrawer> <http://www.w3.org/2000/01/rdf-schema#label> "Navigation Drawer"@en .
+<https://ekgf.github.io/o-ux/component#NavigationDrawer> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/navigation-drawer> .
+# 
+# https://ekgf.github.io/o-ux/component#NavigationRail
+<https://ekgf.github.io/o-ux/component#NavigationRail> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#NavigationRail> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#NavigationComponent> .
+<https://ekgf.github.io/o-ux/component#NavigationRail> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#NavigationRail> <http://www.w3.org/2000/01/rdf-schema#comment> "Navigation rails provide ergonomic movement between primary destinations in apps.\n\nThe rail is a side navigation component that displays three to seven app destinations and, optionally, a Floating Action Button. \nEach destination is represented by an icon and a text label.\n\nThe rail can function on its own at larger screen sizes, such as desktop and tablet. \nWhen users transition between screen sizes and devices, the rail can also complement other navigation components, such as bottom navigation."@en .
+<https://ekgf.github.io/o-ux/component#NavigationRail> <http://www.w3.org/2000/01/rdf-schema#label> "Navigation Rail"@en .
+<https://ekgf.github.io/o-ux/component#NavigationRail> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/navigation-rail> .
+# 
+# https://ekgf.github.io/o-ux/component#ProgressIndicator
+<https://ekgf.github.io/o-ux/component#ProgressIndicator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#ProgressIndicator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#TemporarySurface> .
+<https://ekgf.github.io/o-ux/component#ProgressIndicator> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#ProgressIndicator> <http://www.w3.org/2000/01/rdf-schema#label> "Progress Indicator"@en .
+<https://ekgf.github.io/o-ux/component#ProgressIndicator> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/progress-indicators> .
+# 
+# https://ekgf.github.io/o-ux/component#Session
+<https://ekgf.github.io/o-ux/component#Session> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Session> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#ModelComponent> .
+<https://ekgf.github.io/o-ux/component#Session> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Session> <http://www.w3.org/2000/01/rdf-schema#label> "Session"@en .
+# 
+# https://ekgf.github.io/o-ux/component#SideSheet
+<https://ekgf.github.io/o-ux/component#SideSheet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#SideSheet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#SideSheet> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#SideSheet> <http://www.w3.org/2000/01/rdf-schema#label> "Side Sheet"@en .
+<https://ekgf.github.io/o-ux/component#SideSheet> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/sheets-side#usage> .
+# 
+# https://ekgf.github.io/o-ux/component#SnackBar
+<https://ekgf.github.io/o-ux/component#SnackBar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#SnackBar> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#TemporarySurface> .
+<https://ekgf.github.io/o-ux/component#SnackBar> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#SnackBar> <http://www.w3.org/2000/01/rdf-schema#comment> "Snackbars provide brief messages about app processes at the bottom of the screen."@en .
+<https://ekgf.github.io/o-ux/component#SnackBar> <http://www.w3.org/2000/01/rdf-schema#label> "Snackbar"@en .
+<https://ekgf.github.io/o-ux/component#SnackBar> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/snackbars> .
+# 
+# https://ekgf.github.io/o-ux/component#StoryMenu
+<https://ekgf.github.io/o-ux/component#StoryMenu> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#StoryMenu> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Menu> .
+<https://ekgf.github.io/o-ux/component#StoryMenu> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+# 
+# https://ekgf.github.io/o-ux/component#Surface
+<https://ekgf.github.io/o-ux/component#Surface> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Surface> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#ViewComponent> .
+<https://ekgf.github.io/o-ux/component#Surface> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Surface> <http://www.w3.org/2000/01/rdf-schema#label> "Surface"@en .
+# 
+# https://ekgf.github.io/o-ux/component#Tab
+<https://ekgf.github.io/o-ux/component#Tab> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#Tab> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Element> .
+<https://ekgf.github.io/o-ux/component#Tab> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#Tab> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "Tabs organize content across different screens, data sets, and other interactions.\n\nTabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.\n\nEach tab should contain content that is distinct from other tabs in a set. \nFor example, tabs can present different sections of news, different genres of music, or different themes of documents.\n\nTabs can be paired with components like top app bars, or nested in components like cards and sheets."@en .
+<https://ekgf.github.io/o-ux/component#Tab> <http://www.w3.org/2000/01/rdf-schema#label> "Tab"@en .
+<https://ekgf.github.io/o-ux/component#Tab> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://ekgf.github.io/o-ux/component#TabLayout> .
+<https://ekgf.github.io/o-ux/component#Tab> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/tabs> .
+# 
+# https://ekgf.github.io/o-ux/component#TabLayout
+<https://ekgf.github.io/o-ux/component#TabLayout> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#TabLayout> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#TabLayout> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#TabLayout> <http://www.w3.org/2000/01/rdf-schema#label> "Tab Layout"@en .
+<https://ekgf.github.io/o-ux/component#TabLayout> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://ekgf.github.io/o-ux/component#Tab> .
+<https://ekgf.github.io/o-ux/component#TabLayout> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/tabs/android#using-tabs> .
+# 
+# https://ekgf.github.io/o-ux/component#TemporarySurface
+<https://ekgf.github.io/o-ux/component#TemporarySurface> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#TemporarySurface> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Surface> .
+<https://ekgf.github.io/o-ux/component#TemporarySurface> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#TemporarySurface> <http://www.w3.org/2000/01/rdf-schema#label> "Temporary Service"@en .
+# 
+# https://ekgf.github.io/o-ux/component#TextField
+<https://ekgf.github.io/o-ux/component#TextField> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#TextField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Element> .
+<https://ekgf.github.io/o-ux/component#TextField> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#TextField> <http://www.w3.org/2000/01/rdf-schema#label> "Text Field"@en .
+<https://ekgf.github.io/o-ux/component#TextField> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/text-fields> .
+# 
+# https://ekgf.github.io/o-ux/component#TopAppBar
+<https://ekgf.github.io/o-ux/component#TopAppBar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#TopAppBar> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#AppBar> .
+<https://ekgf.github.io/o-ux/component#TopAppBar> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#TopAppBar> <http://www.w3.org/2000/01/rdf-schema#comment> "The top app bar displays information and actions relating to the current screen.\n\nThe top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.\n\nIt can transform into a contextual action bar."@en .
+<https://ekgf.github.io/o-ux/component#TopAppBar> <http://www.w3.org/2000/01/rdf-schema#label> "Top App Bar"@en .
+<https://ekgf.github.io/o-ux/component#TopAppBar> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://material.io/components/app-bars-top> .
+# 
+# https://ekgf.github.io/o-ux/component#UseCases
+<https://ekgf.github.io/o-ux/component#UseCases> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#UseCases> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#ModelComponent> .
+<https://ekgf.github.io/o-ux/component#UseCases> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#UseCases> <http://www.w3.org/2000/01/rdf-schema#comment> "The UseCases component collects all current use cases from the EKG that the current User could have access to given the current LandingThing.\n\nFor each supported Use Case it knows the EKG/IRI, its label and the Personas that the current user has.\n\nOther components can ask the UseCases-component for more details\nabout whether a given Story in a given UseCase is supported for the\ngiven Persona.\nThat information could then be used to show or not show certain elements\nin the user interface that may or may not be available to the current user."@en .
+<https://ekgf.github.io/o-ux/component#UseCases> <http://www.w3.org/2000/01/rdf-schema#label> "Use Cases"@en .
+# 
+# https://ekgf.github.io/o-ux/component#User
+<https://ekgf.github.io/o-ux/component#User> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#User> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#ModelComponent> .
+<https://ekgf.github.io/o-ux/component#User> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#User> <http://www.w3.org/2000/01/rdf-schema#label> "User"@en .
+# 
+# https://ekgf.github.io/o-ux/component#ViewComponent
+<https://ekgf.github.io/o-ux/component#ViewComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://ekgf.github.io/o-ux/component#ViewComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://ekgf.github.io/o-ux/component#Component> .
+<https://ekgf.github.io/o-ux/component#ViewComponent> <http://purl.org/dc/elements/1.1/creator> <http://orcid.org/0000-0003-2309-5068> .
+<https://ekgf.github.io/o-ux/component#ViewComponent> <http://www.w3.org/2000/01/rdf-schema#label> "View Component"@en .
+<https://ekgf.github.io/o-ux/component#ViewComponent> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://en.wikipedia.org/wiki/Model\u2013view\u2013controller> .
+<https://ekgf.github.io/o-ux/component#ViewComponent> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "A ViewComponent is a component that ultimately can occupy some screen real-estate.\n\nThe term View comes from the MVC (Model, View, Controller) concept."@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid1 <http://www.w3.org/2002/07/owl#members> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://ekgf.github.io/o-ux/component#AppNavigator> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid4 .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://ekgf.github.io/o-ux/component#BottomNavigationBar> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://ekgf.github.io/o-ux/component#NavigationDrawer> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://ekgf.github.io/o-ux/component#NavigationRail> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+# 
+# Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/

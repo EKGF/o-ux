@@ -1,0 +1,710 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://ekgf.github.io/o-ux/component#"
+     xml:base="https://ekgf.github.io/o-ux/component"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://ekgf.github.io/o-ux/component#">
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://orcid.org/0000-0003-2309-5068</dc:creator>
+        <dc:date>2021-06-15</dc:date>
+        <dc:title>The EKG/UX Component Ontology</dc:title>
+        <terms:rights rdf:resource="https://ekgf.github.io/o-ux/LICENSE"/>
+        <vann:preferredNamespacePrefix>ekgux</vann:preferredNamespacePrefix>
+        <vann:preferredNamespacePrefix>https://ekgf.github.io/o-ux/component#</vann:preferredNamespacePrefix>
+        <rdfs:comment xml:lang="en">The core concept in the EKG/UX Component Ontology is the class Component which represents the information that is needed for a given user interface (or report) component.
+
+These Components form a tree-like structure where a parent Component
+can hold multiple child Components that are assumed to be shown by
+a user interface or report generator in the space -- or &quot;screen real estate&quot; -- occupied by the parent Component.
+
+Many of the names of the various components are inspired by Google&apos;s Material Design concepts: https://material.io/components
+
+However, although many Components as they exist in the EKG will have
+a one-on-one relationship with a gisible component on the screen (or
+on a report), this does not always have to be the case. Some Components
+in the user interface will have many more sub-components, there is no
+hard requirement that they all have to be defined in the EKG as well.
+
+This is meant to be a flexible structure. In theory, a legacy React application for instance may be represented as just one top level Component in the EKG, in that sense it woud be a &quot;black box&quot; from the EKG&apos;s perspective.</rdfs:comment>
+        <rdfs:label xml:lang="en">The EKG/UX Component Ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/rights -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/rights"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#AnonymousUser -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#AnonymousUser">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#User"/>
+        <owl:disjointWith rdf:resource="https://ekgf.github.io/o-ux/component#NamedUser"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Anonymous User</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#AppBar -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#AppBar">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">The top app bar displays information and actions relating to the current screen.
+
+A bottom app bar displays navigation and key actions at the bottom of mobile screens.</rdfs:comment>
+        <rdfs:label xml:lang="en">App Bar</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://material.io/components/app-bars-bottom</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://material.io/components/app-bars-top</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#AppNavigator -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#AppNavigator">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#NavigationComponent"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">A generic component that allows a user to navigator to other Apps or
+primary destinations in the existing App supporting:
+
+- NavigationDrawer
+- BottomNavigationBar (for up to 3 destinations)
+- NavigationRail (for up to 7 destinations)</rdfs:comment>
+        <rdfs:label xml:lang="en">App Navigator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Backdrop -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Backdrop">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">A backdrop appears behind all other surfaces in an app, displaying contextual and actionable content.</rdfs:comment>
+        <rdfs:label xml:lang="en">Backdrop</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/backdrop"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Banner -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Banner">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#TemporarySurface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">A banner displays a prominent message and related optional actions.</rdfs:comment>
+        <rdfs:label xml:lang="en">Banner</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/banners"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#BottomAppBar -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#BottomAppBar">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#AppBar"/>
+        <owl:disjointWith rdf:resource="https://ekgf.github.io/o-ux/component#TopAppBar"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">A bottom app bar displays navigation and key actions at the bottom of mobile screens.
+
+Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.</rdfs:comment>
+        <rdfs:label xml:lang="en">Bottom App Bar</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/app-bars-bottom"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#BottomNavigationBar -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#BottomNavigationBar">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#NavigationComponent"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">Bottom navigation bars allow movement between primary destinations in an app.
+
+Bottom navigation bars display three to five destinations at the bottom of a screen. Each destination is represented by an icon and an optional text label. When a bottom navigation icon is tapped, the user is taken to the top-level navigation destination associated with that icon.</rdfs:comment>
+        <rdfs:label xml:lang="en">Bottom Navigation Bar</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/bottom-navigation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#BottomSheet -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#BottomSheet">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Bottom Sheet</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/sheets-bottom"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Button -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Button">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Element"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">Buttons allow users to take actions, and make choices, with a single tap.</rdfs:comment>
+        <rdfs:label xml:lang="en">Button</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/buttons"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Canvas -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Canvas">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Canvas</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Card -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Card">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">Cards contain content and actions about a single subject.
+
+Cards are surfaces that display content and actions on a single topic.
+
+They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy.</rdfs:comment>
+        <rdfs:label xml:lang="en">Card</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/cards"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Checkbox -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Checkbox">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Element"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Checkbox</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/checkboxes"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Chip -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Chip">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Element"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Chip</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/chips"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Component -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Component">
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#DataTable -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#DataTable">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Data Table</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/data-tables"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#DatapointMenu -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#DatapointMenu">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Menu"/>
+        <owl:disjointWith rdf:resource="https://ekgf.github.io/o-ux/component#StoryMenu"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Dialog -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Dialog">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
+
+A dialog is a type of modal window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.
+
+Dialogs are purposefully interruptive, so they should be used sparingly.
+
+Dialogs should be used for:
+
+- Errors that block an app’s normal operation
+- Critical information that requires a specific user task, decision, or acknowledgement</rdfs:comment>
+        <rdfs:label xml:lang="en">Dialog</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/dialogs"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Element -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Element">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#ViewComponent"/>
+        <owl:disjointWith rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Element</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#ImageList -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#ImageList">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Element"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Image List</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/image-lists"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#LandingThing -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#LandingThing">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#ModelComponent"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">The LandingThing is the object -- or Thing -- that the user landed on, its EKG/IRI is the current browser IRI.
+
+Other components may query the LandingThing-component for additional information such as its types (rdf:type).
+
+For instance, the UseCases-component may use these types to query
+the EKG for all use cases supported for the given user and the given LandingThing.</rdfs:comment>
+        <rdfs:label xml:lang="en">Landing Thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#List -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#List">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Element"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">List</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/lists"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Menu -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Menu">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#TemporarySurface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">Menus display a list of choices on temporary surfaces.
+
+A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.</rdfs:comment>
+        <rdfs:label xml:lang="en">Menu</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://material.io/components/menus</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#ModelComponent -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#ModelComponent">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Component"/>
+        <owl:disjointWith rdf:resource="https://ekgf.github.io/o-ux/component#ViewComponent"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">A ModelComponent is an active component that manages a data structure in the browser (or a reporting engine) to be used by ViewComponents.</rdfs:comment>
+        <rdfs:label xml:lang="en">Model Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#NamedUser -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#NamedUser">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#User"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Named User</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#NavigationComponent -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#NavigationComponent">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">Navigation Components allow movement to primary destinations in an App.</rdfs:comment>
+        <rdfs:label xml:lang="en">Navigation Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#NavigationDestinations -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#NavigationDestinations">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#ModelComponent"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">NavigationDestinations collects all primary destinations that the user can navigate too.
+
+To be used in conjunction with NavigationComponent.</rdfs:comment>
+        <rdfs:label xml:lang="en">Navigation Destinations</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#NavigationDrawer -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#NavigationDrawer">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#NavigationComponent"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">Navigation drawers provide access to destinations in your app.
+
+Navigation drawers provide access to destinations and app functionality, such as switching accounts. They can either be permanently on-screen or controlled by a navigation menu icon.
+
+Navigation drawers are recommended for:
+
+- Apps with five or more top-level destinations
+- Apps with two or more levels of navigation hierarchy
+- Quick navigation between unrelated destinations</rdfs:comment>
+        <rdfs:label xml:lang="en">Navigation Drawer</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/navigation-drawer"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#NavigationRail -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#NavigationRail">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#NavigationComponent"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">Navigation rails provide ergonomic movement between primary destinations in apps.
+
+The rail is a side navigation component that displays three to seven app destinations and, optionally, a Floating Action Button. 
+Each destination is represented by an icon and a text label.
+
+The rail can function on its own at larger screen sizes, such as desktop and tablet. 
+When users transition between screen sizes and devices, the rail can also complement other navigation components, such as bottom navigation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Navigation Rail</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/navigation-rail"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#ProgressIndicator -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#ProgressIndicator">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#TemporarySurface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Progress Indicator</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/progress-indicators"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Session -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Session">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#ModelComponent"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Session</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#SideSheet -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#SideSheet">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Side Sheet</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/sheets-side#usage"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#SnackBar -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#SnackBar">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#TemporarySurface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">Snackbars provide brief messages about app processes at the bottom of the screen.</rdfs:comment>
+        <rdfs:label xml:lang="en">Snackbar</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/snackbars"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#StoryMenu -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#StoryMenu">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Menu"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Surface -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Surface">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#ViewComponent"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#Tab -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#Tab">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Element"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:isDefinedBy xml:lang="en">Tabs organize content across different screens, data sets, and other interactions.
+
+Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.
+
+Each tab should contain content that is distinct from other tabs in a set. 
+For example, tabs can present different sections of news, different genres of music, or different themes of documents.
+
+Tabs can be paired with components like top app bars, or nested in components like cards and sheets.</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Tab</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://ekgf.github.io/o-ux/component#TabLayout"/>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/tabs"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#TabLayout -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#TabLayout">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Tab Layout</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://ekgf.github.io/o-ux/component#Tab"/>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/tabs/android#using-tabs"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#TemporarySurface -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#TemporarySurface">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Surface"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Temporary Service</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#TextField -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#TextField">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Element"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">Text Field</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/text-fields"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#TopAppBar -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#TopAppBar">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#AppBar"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">The top app bar displays information and actions relating to the current screen.
+
+The top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.
+
+It can transform into a contextual action bar.</rdfs:comment>
+        <rdfs:label xml:lang="en">Top App Bar</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://material.io/components/app-bars-top"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#UseCases -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#UseCases">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#ModelComponent"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:comment xml:lang="en">The UseCases component collects all current use cases from the EKG that the current User could have access to given the current LandingThing.
+
+For each supported Use Case it knows the EKG/IRI, its label and the Personas that the current user has.
+
+Other components can ask the UseCases-component for more details
+about whether a given Story in a given UseCase is supported for the
+given Persona.
+That information could then be used to show or not show certain elements
+in the user interface that may or may not be available to the current user.</rdfs:comment>
+        <rdfs:label xml:lang="en">Use Cases</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#User -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#User">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#ModelComponent"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">User</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://ekgf.github.io/o-ux/component#ViewComponent -->
+
+
+    <owl:Class rdf:about="https://ekgf.github.io/o-ux/component#ViewComponent">
+        <rdfs:subClassOf rdf:resource="https://ekgf.github.io/o-ux/component#Component"/>
+        <dc:creator rdf:resource="http://orcid.org/0000-0003-2309-5068"/>
+        <rdfs:label xml:lang="en">View Component</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Model–view–controller"/>
+        <rdfs:seeAlso xml:lang="en">A ViewComponent is a component that ultimately can occupy some screen real-estate.
+
+The term View comes from the MVC (Model, View, Controller) concept.</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://ekgf.github.io/o-ux/component#AppNavigator"/>
+            <rdf:Description rdf:about="https://ekgf.github.io/o-ux/component#BottomNavigationBar"/>
+            <rdf:Description rdf:about="https://ekgf.github.io/o-ux/component#NavigationDrawer"/>
+            <rdf:Description rdf:about="https://ekgf.github.io/o-ux/component#NavigationRail"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/ -->
+
+

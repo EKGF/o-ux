@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+ <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />    <title>The EKG/UX Component Ontology</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"TechArticle","url":"https://ekgf.github.io/o-ux/component#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://ekgf.github.io/o-ux/component#","name":"The EKG/UX Component Ontology", "headline":"The core concept in the EKG/UX Component Ontology is the class Component which represents the information that is needed for a given user interface (or report) component.
+
+These Components form a tree-like structure where a parent Component
+can hold multiple child Components that are assumed to be shown by
+a user interface or report generator in the space -- or "screen real estate" -- occupied by the parent Component.
+
+Many of the names of the various components are inspired by Google's Material Design concepts: https://material.io/components
+
+However, although many Components as they exist in the EKG will have
+a one-on-one relationship with a gisible component on the screen (or
+on a report), this does not always have to be the case. Some Components
+in the user interface will have many more sub-components, there is no
+hard requirement that they all have to be defined in the EKG as well.
+
+This is meant to be a flexible structure. In theory, a legacy React application for instance may be represented as just one top level Component in the EKG, in that sense it woud be a "black box" from the EKG's perspective.", "datePublished":"Wed Jun 16 16:36:39 UTC 2021", "author":[{"@type":"Person","name":"http://orcid.org/0000-0003-2309-5068","url":"http://orcid.org/0000-0003-2309-5068"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+ $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index.html"><b>en</b></a> </div>
+<h1>The EKG/UX Component Ontology</h1>
+
+
+<dl>
+<dt>Authors:</dt>
+<dd><a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a></dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.json" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.xml" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License: </dt><dd><a href="http://insertlicenseURIhere.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.org" /></a>
+</dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd><dt>Cite as:</dt>
+<dd>http://orcid.org/0000-0003-2309-5068. The EKG/UX Component Ontology.</dd>
+</dl>
+
+<a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+The core concept in the EKG/UX Component Ontology is the class Component which represents the information that is needed for a given user interface (or report) component.
+
+These Components form a tree-like structure where a parent Component
+can hold multiple child Components that are assumed to be shown by
+a user interface or report generator in the space -- or "screen real estate" -- occupied by the parent Component.
+
+Many of the names of the various components are inspired by Google's Material Design concepts: https://material.io/components
+
+However, although many Components as they exist in the EKG will have
+a one-on-one relationship with a gisible component on the screen (or
+on a report), this does not always have to be the case. Some Components
+in the user interface will have many more sub-components, there is no
+hard requirement that they all have to be defined in the EKG as well.
+
+This is meant to be a flexible structure. In theory, a legacy React application for instance may be represented as just one top level Component in the EKG, in that sense it woud be a "black box" from the EKG's perspective.</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>https://ekgf.github.io/o-ux/component#</b></td><td>&lt;https://ekgf.github.io/o-ux/component#&gt;</td></tr>
+<tr><td><b>components</b></td><td>&lt;https://material.io/components&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl&gt;</td></tr>
+<tr><td><b>android</b></td><td>&lt;https://material.io/components/tabs/android&gt;</td></tr>
+<tr><td><b>wiki</b></td><td>&lt;https://en.wikipedia.org/wiki&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema&gt;</td></tr>
+<tr><td><b>orcid-org</b></td><td>&lt;http://orcid.org&gt;</td></tr>
+<tr><td><b>o-ux</b></td><td>&lt;https://ekgf.github.io/o-ux&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns&gt;</td></tr>
+<tr><td><b>terms</b></td><td>&lt;http://purl.org/dc/terms&gt;</td></tr>
+<tr><td><b>sheets-side</b></td><td>&lt;https://material.io/components/sheets-side&gt;</td></tr>
+<tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann&gt;</td></tr>
+<tr><td><b>default namespace</b></td><td>&lt;https://ekgf.github.io/o-ux/component&gt;</td></tr>
+<tr><td><b>dc</b></td><td>&lt;http://purl.org/dc/elements/1.1&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">The EKG/UX Component Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul class="hlist">
+   <li>
+      <a href="#AnonymousUser"
+         title="https://ekgf.github.io/o-ux/component#AnonymousUser">Anonymous User</a>
+   </li>
+   <li>
+      <a href="#AppBar" title="https://ekgf.github.io/o-ux/component#AppBar">App Bar</a>
+   </li>
+   <li>
+      <a href="#AppNavigator"
+         title="https://ekgf.github.io/o-ux/component#AppNavigator">App Navigator</a>
+   </li>
+   <li>
+      <a href="#Backdrop" title="https://ekgf.github.io/o-ux/component#Backdrop">Backdrop</a>
+   </li>
+   <li>
+      <a href="#Banner" title="https://ekgf.github.io/o-ux/component#Banner">Banner</a>
+   </li>
+   <li>
+      <a href="#BottomAppBar"
+         title="https://ekgf.github.io/o-ux/component#BottomAppBar">Bottom App Bar</a>
+   </li>
+   <li>
+      <a href="#BottomNavigationBar"
+         title="https://ekgf.github.io/o-ux/component#BottomNavigationBar">Bottom Navigation Bar</a>
+   </li>
+   <li>
+      <a href="#BottomSheet"
+         title="https://ekgf.github.io/o-ux/component#BottomSheet">Bottom Sheet</a>
+   </li>
+   <li>
+      <a href="#Button" title="https://ekgf.github.io/o-ux/component#Button">Button</a>
+   </li>
+   <li>
+      <a href="#Canvas" title="https://ekgf.github.io/o-ux/component#Canvas">Canvas</a>
+   </li>
+   <li>
+      <a href="#Card" title="https://ekgf.github.io/o-ux/component#Card">Card</a>
+   </li>
+   <li>
+      <a href="#Checkbox" title="https://ekgf.github.io/o-ux/component#Checkbox">Checkbox</a>
+   </li>
+   <li>
+      <a href="#Chip" title="https://ekgf.github.io/o-ux/component#Chip">Chip</a>
+   </li>
+   <li>
+      <a href="#Component" title="https://ekgf.github.io/o-ux/component#Component">Component</a>
+   </li>
+   <li>
+      <a href="#DataTable" title="https://ekgf.github.io/o-ux/component#DataTable">Data Table</a>
+   </li>
+   <li>
+      <a href="#DatapointMenu"
+         title="https://ekgf.github.io/o-ux/component#DatapointMenu">
+         <span>datapoint menu</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Dialog" title="https://ekgf.github.io/o-ux/component#Dialog">Dialog</a>
+   </li>
+   <li>
+      <a href="#Element" title="https://ekgf.github.io/o-ux/component#Element">Element</a>
+   </li>
+   <li>
+      <a href="#ImageList" title="https://ekgf.github.io/o-ux/component#ImageList">Image List</a>
+   </li>
+   <li>
+      <a href="#LandingThing"
+         title="https://ekgf.github.io/o-ux/component#LandingThing">Landing Thing</a>
+   </li>
+   <li>
+      <a href="#List" title="https://ekgf.github.io/o-ux/component#List">List</a>
+   </li>
+   <li>
+      <a href="#Menu" title="https://ekgf.github.io/o-ux/component#Menu">Menu</a>
+   </li>
+   <li>
+      <a href="#ModelComponent"
+         title="https://ekgf.github.io/o-ux/component#ModelComponent">Model Component</a>
+   </li>
+   <li>
+      <a href="#NamedUser" title="https://ekgf.github.io/o-ux/component#NamedUser">Named User</a>
+   </li>
+   <li>
+      <a href="#NavigationComponent"
+         title="https://ekgf.github.io/o-ux/component#NavigationComponent">Navigation Component</a>
+   </li>
+   <li>
+      <a href="#NavigationDestinations"
+         title="https://ekgf.github.io/o-ux/component#NavigationDestinations">Navigation Destinations</a>
+   </li>
+   <li>
+      <a href="#NavigationDrawer"
+         title="https://ekgf.github.io/o-ux/component#NavigationDrawer">Navigation Drawer</a>
+   </li>
+   <li>
+      <a href="#NavigationRail"
+         title="https://ekgf.github.io/o-ux/component#NavigationRail">Navigation Rail</a>
+   </li>
+   <li>
+      <a href="#ProgressIndicator"
+         title="https://ekgf.github.io/o-ux/component#ProgressIndicator">Progress Indicator</a>
+   </li>
+   <li>
+      <a href="#Session" title="https://ekgf.github.io/o-ux/component#Session">Session</a>
+   </li>
+   <li>
+      <a href="#SideSheet" title="https://ekgf.github.io/o-ux/component#SideSheet">Side Sheet</a>
+   </li>
+   <li>
+      <a href="#SnackBar" title="https://ekgf.github.io/o-ux/component#SnackBar">Snackbar</a>
+   </li>
+   <li>
+      <a href="#StoryMenu" title="https://ekgf.github.io/o-ux/component#StoryMenu">
+         <span>story menu</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+   </li>
+   <li>
+      <a href="#Tab" title="https://ekgf.github.io/o-ux/component#Tab">Tab</a>
+   </li>
+   <li>
+      <a href="#TabLayout" title="https://ekgf.github.io/o-ux/component#TabLayout">Tab Layout</a>
+   </li>
+   <li>
+      <a href="#TemporarySurface"
+         title="https://ekgf.github.io/o-ux/component#TemporarySurface">Temporary Service</a>
+   </li>
+   <li>
+      <a href="#TextField" title="https://ekgf.github.io/o-ux/component#TextField">Text Field</a>
+   </li>
+   <li>
+      <a href="#TopAppBar" title="https://ekgf.github.io/o-ux/component#TopAppBar">Top App Bar</a>
+   </li>
+   <li>
+      <a href="#UseCases" title="https://ekgf.github.io/o-ux/component#UseCases">Use Cases</a>
+   </li>
+   <li>
+      <a href="#User" title="https://ekgf.github.io/o-ux/component#User">User</a>
+   </li>
+   <li>
+      <a href="#ViewComponent"
+         title="https://ekgf.github.io/o-ux/component#ViewComponent">View Component</a>
+   </li>
+</ul><iframe align="center" width="100%" height ="500px" src="webvowl/index.html"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">The EKG/UX Component Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.</span>
+
+</div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross reference for The EKG/UX Component Ontology classes, properties and dataproperties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by The EKG/UX Component Ontology.
+<div id="classes">
+   <h3 id="classes-headline" class="list">Classes</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#AnonymousUser"
+            title="https://ekgf.github.io/o-ux/component#AnonymousUser">Anonymous User</a>
+      </li>
+      <li>
+         <a href="#AppBar" title="https://ekgf.github.io/o-ux/component#AppBar">App Bar</a>
+      </li>
+      <li>
+         <a href="#AppNavigator"
+            title="https://ekgf.github.io/o-ux/component#AppNavigator">App Navigator</a>
+      </li>
+      <li>
+         <a href="#Backdrop" title="https://ekgf.github.io/o-ux/component#Backdrop">Backdrop</a>
+      </li>
+      <li>
+         <a href="#Banner" title="https://ekgf.github.io/o-ux/component#Banner">Banner</a>
+      </li>
+      <li>
+         <a href="#BottomAppBar"
+            title="https://ekgf.github.io/o-ux/component#BottomAppBar">Bottom App Bar</a>
+      </li>
+      <li>
+         <a href="#BottomNavigationBar"
+            title="https://ekgf.github.io/o-ux/component#BottomNavigationBar">Bottom Navigation Bar</a>
+      </li>
+      <li>
+         <a href="#BottomSheet"
+            title="https://ekgf.github.io/o-ux/component#BottomSheet">Bottom Sheet</a>
+      </li>
+      <li>
+         <a href="#Button" title="https://ekgf.github.io/o-ux/component#Button">Button</a>
+      </li>
+      <li>
+         <a href="#Canvas" title="https://ekgf.github.io/o-ux/component#Canvas">Canvas</a>
+      </li>
+      <li>
+         <a href="#Card" title="https://ekgf.github.io/o-ux/component#Card">Card</a>
+      </li>
+      <li>
+         <a href="#Checkbox" title="https://ekgf.github.io/o-ux/component#Checkbox">Checkbox</a>
+      </li>
+      <li>
+         <a href="#Chip" title="https://ekgf.github.io/o-ux/component#Chip">Chip</a>
+      </li>
+      <li>
+         <a href="#Component" title="https://ekgf.github.io/o-ux/component#Component">Component</a>
+      </li>
+      <li>
+         <a href="#DataTable" title="https://ekgf.github.io/o-ux/component#DataTable">Data Table</a>
+      </li>
+      <li>
+         <a href="#DatapointMenu"
+            title="https://ekgf.github.io/o-ux/component#DatapointMenu">
+            <span>datapoint menu</span>
+         </a>
+      </li>
+      <li>
+         <a href="#Dialog" title="https://ekgf.github.io/o-ux/component#Dialog">Dialog</a>
+      </li>
+      <li>
+         <a href="#Element" title="https://ekgf.github.io/o-ux/component#Element">Element</a>
+      </li>
+      <li>
+         <a href="#ImageList" title="https://ekgf.github.io/o-ux/component#ImageList">Image List</a>
+      </li>
+      <li>
+         <a href="#LandingThing"
+            title="https://ekgf.github.io/o-ux/component#LandingThing">Landing Thing</a>
+      </li>
+      <li>
+         <a href="#List" title="https://ekgf.github.io/o-ux/component#List">List</a>
+      </li>
+      <li>
+         <a href="#Menu" title="https://ekgf.github.io/o-ux/component#Menu">Menu</a>
+      </li>
+      <li>
+         <a href="#ModelComponent"
+            title="https://ekgf.github.io/o-ux/component#ModelComponent">Model Component</a>
+      </li>
+      <li>
+         <a href="#NamedUser" title="https://ekgf.github.io/o-ux/component#NamedUser">Named User</a>
+      </li>
+      <li>
+         <a href="#NavigationComponent"
+            title="https://ekgf.github.io/o-ux/component#NavigationComponent">Navigation Component</a>
+      </li>
+      <li>
+         <a href="#NavigationDestinations"
+            title="https://ekgf.github.io/o-ux/component#NavigationDestinations">Navigation Destinations</a>
+      </li>
+      <li>
+         <a href="#NavigationDrawer"
+            title="https://ekgf.github.io/o-ux/component#NavigationDrawer">Navigation Drawer</a>
+      </li>
+      <li>
+         <a href="#NavigationRail"
+            title="https://ekgf.github.io/o-ux/component#NavigationRail">Navigation Rail</a>
+      </li>
+      <li>
+         <a href="#ProgressIndicator"
+            title="https://ekgf.github.io/o-ux/component#ProgressIndicator">Progress Indicator</a>
+      </li>
+      <li>
+         <a href="#Session" title="https://ekgf.github.io/o-ux/component#Session">Session</a>
+      </li>
+      <li>
+         <a href="#SideSheet" title="https://ekgf.github.io/o-ux/component#SideSheet">Side Sheet</a>
+      </li>
+      <li>
+         <a href="#SnackBar" title="https://ekgf.github.io/o-ux/component#SnackBar">Snackbar</a>
+      </li>
+      <li>
+         <a href="#StoryMenu" title="https://ekgf.github.io/o-ux/component#StoryMenu">
+            <span>story menu</span>
+         </a>
+      </li>
+      <li>
+         <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+      </li>
+      <li>
+         <a href="#Tab" title="https://ekgf.github.io/o-ux/component#Tab">Tab</a>
+      </li>
+      <li>
+         <a href="#TabLayout" title="https://ekgf.github.io/o-ux/component#TabLayout">Tab Layout</a>
+      </li>
+      <li>
+         <a href="#TemporarySurface"
+            title="https://ekgf.github.io/o-ux/component#TemporarySurface">Temporary Service</a>
+      </li>
+      <li>
+         <a href="#TextField" title="https://ekgf.github.io/o-ux/component#TextField">Text Field</a>
+      </li>
+      <li>
+         <a href="#TopAppBar" title="https://ekgf.github.io/o-ux/component#TopAppBar">Top App Bar</a>
+      </li>
+      <li>
+         <a href="#UseCases" title="https://ekgf.github.io/o-ux/component#UseCases">Use Cases</a>
+      </li>
+      <li>
+         <a href="#User" title="https://ekgf.github.io/o-ux/component#User">User</a>
+      </li>
+      <li>
+         <a href="#ViewComponent"
+            title="https://ekgf.github.io/o-ux/component#ViewComponent">View Component</a>
+      </li>
+   </ul>
+   <div class="entity" id="AnonymousUser">
+      <h3>Anonymous User<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#AnonymousUser</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#User" title="https://ekgf.github.io/o-ux/component#User">User</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#NamedUser" title="https://ekgf.github.io/o-ux/component#NamedUser">Named User</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="AppBar">
+      <h3>App Bar<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#AppBar</p>
+      <div class="comment">
+         <span class="markdown">The top app bar displays information and actions relating to the current screen.
+
+A bottom app bar displays navigation and key actions at the bottom of mobile screens.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#BottomAppBar"
+               title="https://ekgf.github.io/o-ux/component#BottomAppBar">Bottom App Bar</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#TopAppBar" title="https://ekgf.github.io/o-ux/component#TopAppBar">Top App Bar</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="AppNavigator">
+      <h3>App Navigator<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#AppNavigator</p>
+      <div class="comment">
+         <span class="markdown">A generic component that allows a user to navigator to other Apps or
+primary destinations in the existing App supporting:
+
+- NavigationDrawer
+- BottomNavigationBar (for up to 3 destinations)
+- NavigationRail (for up to 7 destinations)</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#NavigationComponent"
+               title="https://ekgf.github.io/o-ux/component#NavigationComponent">Navigation Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#BottomNavigationBar"
+               title="https://ekgf.github.io/o-ux/component#BottomNavigationBar">Bottom Navigation Bar</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NavigationDrawer"
+               title="https://ekgf.github.io/o-ux/component#NavigationDrawer">Navigation Drawer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NavigationRail"
+               title="https://ekgf.github.io/o-ux/component#NavigationRail">Navigation Rail</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Backdrop">
+      <h3>Backdrop<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Backdrop</p>
+      <div class="comment">
+         <span class="markdown">A backdrop appears behind all other surfaces in an app, displaying contextual and actionable content.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Banner">
+      <h3>Banner<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Banner</p>
+      <div class="comment">
+         <span class="markdown">A banner displays a prominent message and related optional actions.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#TemporarySurface"
+               title="https://ekgf.github.io/o-ux/component#TemporarySurface">Temporary Service</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="BottomAppBar">
+      <h3>Bottom App Bar<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#BottomAppBar</p>
+      <div class="comment">
+         <span class="markdown">A bottom app bar displays navigation and key actions at the bottom of mobile screens.
+
+Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#AppBar" title="https://ekgf.github.io/o-ux/component#AppBar">App Bar</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#TopAppBar" title="https://ekgf.github.io/o-ux/component#TopAppBar">Top App Bar</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="BottomNavigationBar">
+      <h3>Bottom Navigation Bar<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#BottomNavigationBar</p>
+      <div class="comment">
+         <span class="markdown">Bottom navigation bars allow movement between primary destinations in an app.
+
+Bottom navigation bars display three to five destinations at the bottom of a screen. Each destination is represented by an icon and an optional text label. When a bottom navigation icon is tapped, the user is taken to the top-level navigation destination associated with that icon.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#NavigationComponent"
+               title="https://ekgf.github.io/o-ux/component#NavigationComponent">Navigation Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AppNavigator"
+               title="https://ekgf.github.io/o-ux/component#AppNavigator">App Navigator</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NavigationDrawer"
+               title="https://ekgf.github.io/o-ux/component#NavigationDrawer">Navigation Drawer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NavigationRail"
+               title="https://ekgf.github.io/o-ux/component#NavigationRail">Navigation Rail</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="BottomSheet">
+      <h3>Bottom Sheet<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#BottomSheet</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Button">
+      <h3>Button<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Button</p>
+      <div class="comment">
+         <span class="markdown">Buttons allow users to take actions, and make choices, with a single tap.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Element" title="https://ekgf.github.io/o-ux/component#Element">Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Canvas">
+      <h3>Canvas<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Canvas</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Card">
+      <h3>Card<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Card</p>
+      <div class="comment">
+         <span class="markdown">Cards contain content and actions about a single subject.
+
+Cards are surfaces that display content and actions on a single topic.
+
+They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Checkbox">
+      <h3>Checkbox<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Checkbox</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Element" title="https://ekgf.github.io/o-ux/component#Element">Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Chip">
+      <h3>Chip<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Chip</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Element" title="https://ekgf.github.io/o-ux/component#Element">Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Component">
+      <h3>Component<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Component</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#ModelComponent"
+               title="https://ekgf.github.io/o-ux/component#ModelComponent">Model Component</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ViewComponent"
+               title="https://ekgf.github.io/o-ux/component#ViewComponent">View Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="DataTable">
+      <h3>Data Table<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#DataTable</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="DatapointMenu">
+      <h3>datapoint menu<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#DatapointMenu</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Menu" title="https://ekgf.github.io/o-ux/component#Menu">Menu</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#StoryMenu" title="https://ekgf.github.io/o-ux/component#StoryMenu">story menu</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Dialog">
+      <h3>Dialog<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Dialog</p>
+      <div class="comment">
+         <span class="markdown">Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
+
+A dialog is a type of modal window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.
+
+Dialogs are purposefully interruptive, so they should be used sparingly.
+
+Dialogs should be used for:
+
+- Errors that block an app’s normal operation
+- Critical information that requires a specific user task, decision, or acknowledgement</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Element">
+      <h3>Element<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Element</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#ViewComponent"
+               title="https://ekgf.github.io/o-ux/component#ViewComponent">View Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#Button" title="https://ekgf.github.io/o-ux/component#Button">Button</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Checkbox" title="https://ekgf.github.io/o-ux/component#Checkbox">Checkbox</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Chip" title="https://ekgf.github.io/o-ux/component#Chip">Chip</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ImageList" title="https://ekgf.github.io/o-ux/component#ImageList">Image List</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#List" title="https://ekgf.github.io/o-ux/component#List">List</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Tab" title="https://ekgf.github.io/o-ux/component#Tab">Tab</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#TextField" title="https://ekgf.github.io/o-ux/component#TextField">Text Field</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="ImageList">
+      <h3>Image List<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#ImageList</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Element" title="https://ekgf.github.io/o-ux/component#Element">Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="LandingThing">
+      <h3>Landing Thing<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#LandingThing</p>
+      <div class="comment">
+         <span class="markdown">The LandingThing is the object -- or Thing -- that the user landed on, its EKG/IRI is the current browser IRI.
+
+Other components may query the LandingThing-component for additional information such as its types (rdf:type).
+
+For instance, the UseCases-component may use these types to query
+the EKG for all use cases supported for the given user and the given LandingThing.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#ModelComponent"
+               title="https://ekgf.github.io/o-ux/component#ModelComponent">Model Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="List">
+      <h3>List<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#List</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Element" title="https://ekgf.github.io/o-ux/component#Element">Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Menu">
+      <h3>Menu<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Menu</p>
+      <div class="comment">
+         <span class="markdown">Menus display a list of choices on temporary surfaces.
+
+A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#TemporarySurface"
+               title="https://ekgf.github.io/o-ux/component#TemporarySurface">Temporary Service</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#DatapointMenu"
+               title="https://ekgf.github.io/o-ux/component#DatapointMenu">datapoint menu</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#StoryMenu" title="https://ekgf.github.io/o-ux/component#StoryMenu">story menu</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="ModelComponent">
+      <h3>Model Component<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#ModelComponent</p>
+      <div class="comment">
+         <span class="markdown">A ModelComponent is an active component that manages a data structure in the browser (or a reporting engine) to be used by ViewComponents.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Component" title="https://ekgf.github.io/o-ux/component#Component">Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#LandingThing"
+               title="https://ekgf.github.io/o-ux/component#LandingThing">Landing Thing</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NavigationDestinations"
+               title="https://ekgf.github.io/o-ux/component#NavigationDestinations">Navigation Destinations</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Session" title="https://ekgf.github.io/o-ux/component#Session">Session</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#UseCases" title="https://ekgf.github.io/o-ux/component#UseCases">Use Cases</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#User" title="https://ekgf.github.io/o-ux/component#User">User</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#ViewComponent"
+               title="https://ekgf.github.io/o-ux/component#ViewComponent">View Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="NamedUser">
+      <h3>Named User<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#NamedUser</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#User" title="https://ekgf.github.io/o-ux/component#User">User</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AnonymousUser"
+               title="https://ekgf.github.io/o-ux/component#AnonymousUser">Anonymous User</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="NavigationComponent">
+      <h3>Navigation Component<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#NavigationComponent</p>
+      <div class="comment">
+         <span class="markdown">Navigation Components allow movement to primary destinations in an App.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#AppNavigator"
+               title="https://ekgf.github.io/o-ux/component#AppNavigator">App Navigator</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#BottomNavigationBar"
+               title="https://ekgf.github.io/o-ux/component#BottomNavigationBar">Bottom Navigation Bar</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NavigationDrawer"
+               title="https://ekgf.github.io/o-ux/component#NavigationDrawer">Navigation Drawer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NavigationRail"
+               title="https://ekgf.github.io/o-ux/component#NavigationRail">Navigation Rail</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="NavigationDestinations">
+      <h3>Navigation Destinations<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#NavigationDestinations</p>
+      <div class="comment">
+         <span class="markdown">NavigationDestinations collects all primary destinations that the user can navigate too.
+
+To be used in conjunction with NavigationComponent.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#ModelComponent"
+               title="https://ekgf.github.io/o-ux/component#ModelComponent">Model Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="NavigationDrawer">
+      <h3>Navigation Drawer<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#NavigationDrawer</p>
+      <div class="comment">
+         <span class="markdown">Navigation drawers provide access to destinations in your app.
+
+Navigation drawers provide access to destinations and app functionality, such as switching accounts. They can either be permanently on-screen or controlled by a navigation menu icon.
+
+Navigation drawers are recommended for:
+
+- Apps with five or more top-level destinations
+- Apps with two or more levels of navigation hierarchy
+- Quick navigation between unrelated destinations</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#NavigationComponent"
+               title="https://ekgf.github.io/o-ux/component#NavigationComponent">Navigation Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AppNavigator"
+               title="https://ekgf.github.io/o-ux/component#AppNavigator">App Navigator</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#BottomNavigationBar"
+               title="https://ekgf.github.io/o-ux/component#BottomNavigationBar">Bottom Navigation Bar</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NavigationRail"
+               title="https://ekgf.github.io/o-ux/component#NavigationRail">Navigation Rail</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="NavigationRail">
+      <h3>Navigation Rail<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#NavigationRail</p>
+      <div class="comment">
+         <span class="markdown">Navigation rails provide ergonomic movement between primary destinations in apps.
+
+The rail is a side navigation component that displays three to seven app destinations and, optionally, a Floating Action Button. 
+Each destination is represented by an icon and a text label.
+
+The rail can function on its own at larger screen sizes, such as desktop and tablet. 
+When users transition between screen sizes and devices, the rail can also complement other navigation components, such as bottom navigation.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#NavigationComponent"
+               title="https://ekgf.github.io/o-ux/component#NavigationComponent">Navigation Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AppNavigator"
+               title="https://ekgf.github.io/o-ux/component#AppNavigator">App Navigator</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#BottomNavigationBar"
+               title="https://ekgf.github.io/o-ux/component#BottomNavigationBar">Bottom Navigation Bar</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NavigationDrawer"
+               title="https://ekgf.github.io/o-ux/component#NavigationDrawer">Navigation Drawer</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="ProgressIndicator">
+      <h3>Progress Indicator<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#ProgressIndicator</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#TemporarySurface"
+               title="https://ekgf.github.io/o-ux/component#TemporarySurface">Temporary Service</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Session">
+      <h3>Session<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Session</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#ModelComponent"
+               title="https://ekgf.github.io/o-ux/component#ModelComponent">Model Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="SideSheet">
+      <h3>Side Sheet<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#SideSheet</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="SnackBar">
+      <h3>Snackbar<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#SnackBar</p>
+      <div class="comment">
+         <span class="markdown">Snackbars provide brief messages about app processes at the bottom of the screen.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#TemporarySurface"
+               title="https://ekgf.github.io/o-ux/component#TemporarySurface">Temporary Service</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="StoryMenu">
+      <h3>story menu<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#StoryMenu</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Menu" title="https://ekgf.github.io/o-ux/component#Menu">Menu</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#DatapointMenu"
+               title="https://ekgf.github.io/o-ux/component#DatapointMenu">datapoint menu</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Surface">
+      <h3>Surface<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Surface</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#ViewComponent"
+               title="https://ekgf.github.io/o-ux/component#ViewComponent">View Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#AppBar" title="https://ekgf.github.io/o-ux/component#AppBar">App Bar</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Backdrop" title="https://ekgf.github.io/o-ux/component#Backdrop">Backdrop</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#BottomSheet"
+               title="https://ekgf.github.io/o-ux/component#BottomSheet">Bottom Sheet</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Canvas" title="https://ekgf.github.io/o-ux/component#Canvas">Canvas</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Card" title="https://ekgf.github.io/o-ux/component#Card">Card</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DataTable" title="https://ekgf.github.io/o-ux/component#DataTable">Data Table</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Dialog" title="https://ekgf.github.io/o-ux/component#Dialog">Dialog</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NavigationComponent"
+               title="https://ekgf.github.io/o-ux/component#NavigationComponent">Navigation Component</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#SideSheet" title="https://ekgf.github.io/o-ux/component#SideSheet">Side Sheet</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#TabLayout" title="https://ekgf.github.io/o-ux/component#TabLayout">Tab Layout</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#TemporarySurface"
+               title="https://ekgf.github.io/o-ux/component#TemporarySurface">Temporary Service</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Element" title="https://ekgf.github.io/o-ux/component#Element">Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Tab">
+      <h3>Tab<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#Tab</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://ekgf.github.io/o-ux/component#</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Element" title="https://ekgf.github.io/o-ux/component#Element">Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="TabLayout">
+      <h3>Tab Layout<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#TabLayout</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="TemporarySurface">
+      <h3>Temporary Service<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#TemporarySurface</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#Banner" title="https://ekgf.github.io/o-ux/component#Banner">Banner</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Menu" title="https://ekgf.github.io/o-ux/component#Menu">Menu</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ProgressIndicator"
+               title="https://ekgf.github.io/o-ux/component#ProgressIndicator">Progress Indicator</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#SnackBar" title="https://ekgf.github.io/o-ux/component#SnackBar">Snackbar</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="TextField">
+      <h3>Text Field<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#TextField</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Element" title="https://ekgf.github.io/o-ux/component#Element">Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="TopAppBar">
+      <h3>Top App Bar<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#TopAppBar</p>
+      <div class="comment">
+         <span class="markdown">The top app bar displays information and actions relating to the current screen.
+
+The top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.
+
+It can transform into a contextual action bar.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#AppBar" title="https://ekgf.github.io/o-ux/component#AppBar">App Bar</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#BottomAppBar"
+               title="https://ekgf.github.io/o-ux/component#BottomAppBar">Bottom App Bar</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="UseCases">
+      <h3>Use Cases<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#UseCases</p>
+      <div class="comment">
+         <span class="markdown">The UseCases component collects all current use cases from the EKG that the current User could have access to given the current LandingThing.
+
+For each supported Use Case it knows the EKG/IRI, its label and the Personas that the current user has.
+
+Other components can ask the UseCases-component for more details
+about whether a given Story in a given UseCase is supported for the
+given Persona.
+That information could then be used to show or not show certain elements
+in the user interface that may or may not be available to the current user.</span>
+      </div>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#ModelComponent"
+               title="https://ekgf.github.io/o-ux/component#ModelComponent">Model Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="User">
+      <h3>User<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#User</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#ModelComponent"
+               title="https://ekgf.github.io/o-ux/component#ModelComponent">Model Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#AnonymousUser"
+               title="https://ekgf.github.io/o-ux/component#AnonymousUser">Anonymous User</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NamedUser" title="https://ekgf.github.io/o-ux/component#NamedUser">Named User</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="ViewComponent">
+      <h3>View Component<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://ekgf.github.io/o-ux/component#ViewComponent</p>
+      <dl>
+         <dt>Authors:</dt>
+         <dd>
+            <a href="http://orcid.org/0000-0003-2309-5068">http://orcid.org/0000-0003-2309-5068</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Component" title="https://ekgf.github.io/o-ux/component#Component">Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#Element" title="https://ekgf.github.io/o-ux/component#Element">Element</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Surface" title="https://ekgf.github.io/o-ux/component#Surface">Surface</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#ModelComponent"
+               title="https://ekgf.github.io/o-ux/component#ModelComponent">Model Component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgements">
+<h2 id="ack" class="list">Acknowledgements <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1598 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2000/01/rdf-schema", "https://ekgf.github.io/o-ux/component", "http://www.w3.org/2001/XMLSchema" ],
+    "title" : {
+      "undefined" : "The EKG/UX Component Ontology"
+    },
+    "iri" : "https://ekgf.github.io/o-ux/component#",
+    "author" : [ "http://orcid.org/0000-0003-2309-5068" ],
+    "labels" : {
+      "en" : "The EKG/UX Component Ontology"
+    },
+    "comments" : {
+      "en" : "The core concept in the EKG/UX Component Ontology is the class Component which represents the information that is needed for a given user interface (or report) component.\n\nThese Components form a tree-like structure where a parent Component\ncan hold multiple child Components that are assumed to be shown by\na user interface or report generator in the space -- or \"screen real estate\" -- occupied by the parent Component.\n\nMany of the names of the various components are inspired by Google's Material Design concepts: https://material.io/components\n\nHowever, although many Components as they exist in the EKG will have\na one-on-one relationship with a gisible component on the screen (or\non a report), this does not always have to be the case. Some Components\nin the user interface will have many more sub-components, there is no\nhard requirement that they all have to be defined in the EKG as well.\n\nThis is meant to be a flexible structure. In theory, a legacy React application for instance may be represented as just one top level Component in the EKG, in that sense it woud be a \"black box\" from the EKG's perspective."
+    },
+    "other" : {
+      "date" : [ {
+        "identifier" : "date",
+        "language" : "undefined",
+        "value" : "2021-06-15",
+        "type" : "label"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "label"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "https://ekgf.github.io/o-ux/component#",
+        "type" : "label"
+      }, {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "ekgux",
+        "type" : "label"
+      } ],
+      "rights" : [ {
+        "identifier" : "rights",
+        "language" : "undefined",
+        "value" : "https://ekgf.github.io/o-ux/LICENSE",
+        "type" : "iri"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "undefined",
+        "value" : "The EKG/UX Component Ontology",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "51",
+    "type" : "owl:Class"
+  }, {
+    "id" : "39",
+    "type" : "owl:Class"
+  }, {
+    "id" : "46",
+    "type" : "owl:Class"
+  }, {
+    "id" : "67",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "80",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "56",
+    "type" : "owl:Class"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "41",
+    "type" : "owl:Class"
+  }, {
+    "id" : "49",
+    "type" : "owl:Class"
+  }, {
+    "id" : "57",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "82",
+    "type" : "owl:Class"
+  }, {
+    "id" : "79",
+    "type" : "owl:Class"
+  }, {
+    "id" : "77",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "63",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "owl:Class"
+  }, {
+    "id" : "54",
+    "type" : "owl:Class"
+  }, {
+    "id" : "60",
+    "type" : "owl:Class"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://ekgf.github.io/o-ux/component#Chip",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/chips",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Chip",
+      "en" : "Chip"
+    },
+    "id" : "3",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#NavigationDrawer",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/navigation-drawer",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "NavigationDrawer",
+      "en" : "Navigation Drawer"
+    },
+    "comment" : {
+      "en" : "Navigation drawers provide access to destinations in your app.\n\nNavigation drawers provide access to destinations and app functionality, such as switching accounts. They can either be permanently on-screen or controlled by a navigation menu icon.\n\nNavigation drawers are recommended for:\n\n- Apps with five or more top-level destinations\n- Apps with two or more levels of navigation hierarchy\n- Quick navigation between unrelated destinations"
+    },
+    "id" : "10",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Menu",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/menus",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Menu",
+      "en" : "Menu"
+    },
+    "subClasses" : [ "23", "24" ],
+    "comment" : {
+      "en" : "Menus display a list of choices on temporary surfaces.\n\nA menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control."
+    },
+    "id" : "21",
+    "superClasses" : [ "22" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Banner",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/banners",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Banner",
+      "en" : "Banner"
+    },
+    "comment" : {
+      "en" : "A banner displays a prominent message and related optional actions."
+    },
+    "id" : "30",
+    "superClasses" : [ "22" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Dialog",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/dialogs",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Dialog",
+      "en" : "Dialog"
+    },
+    "comment" : {
+      "en" : "Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.\n\nA dialog is a type of modal window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.\n\nDialogs are purposefully interruptive, so they should be used sparingly.\n\nDialogs should be used for:\n\n- Errors that block an app’s normal operation\n- Critical information that requires a specific user task, decision, or acknowledgement"
+    },
+    "id" : "20",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#BottomAppBar",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/app-bars-bottom",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "BottomAppBar",
+      "en" : "Bottom App Bar"
+    },
+    "comment" : {
+      "en" : "A bottom app bar displays navigation and key actions at the bottom of mobile screens.\n\nBottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button."
+    },
+    "id" : "31",
+    "superClasses" : [ "26" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#ImageList",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/image-lists",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ImageList",
+      "en" : "Image List"
+    },
+    "id" : "32",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Tab",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "en",
+        "value" : "Tabs organize content across different screens, data sets, and other interactions.\n\nTabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.\n\nEach tab should contain content that is distinct from other tabs in a set. \nFor example, tabs can present different sections of news, different genres of music, or different themes of documents.\n\nTabs can be paired with components like top app bars, or nested in components like cards and sheets.",
+        "type" : "label"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://ekgf.github.io/o-ux/component#TabLayout",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/tabs",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Tab",
+      "en" : "Tab"
+    },
+    "id" : "33",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#ViewComponent",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "en",
+        "value" : "A ViewComponent is a component that ultimately can occupy some screen real-estate.\n\nThe term View comes from the MVC (Model, View, Controller) concept.",
+        "type" : "label"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://en.wikipedia.org/wiki/Model–view–controller",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ViewComponent",
+      "en" : "View Component"
+    },
+    "subClasses" : [ "4", "9" ],
+    "id" : "36",
+    "superClasses" : [ "37" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#AppBar",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/app-bars-top",
+        "type" : "label"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/app-bars-bottom",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "AppBar",
+      "en" : "App Bar"
+    },
+    "subClasses" : [ "57", "31" ],
+    "comment" : {
+      "en" : "The top app bar displays information and actions relating to the current screen.\n\nA bottom app bar displays navigation and key actions at the bottom of mobile screens."
+    },
+    "id" : "26",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Button",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/buttons",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Button",
+      "en" : "Button"
+    },
+    "comment" : {
+      "en" : "Buttons allow users to take actions, and make choices, with a single tap."
+    },
+    "id" : "51",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#TextField",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/text-fields",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "TextField",
+      "en" : "Text Field"
+    },
+    "id" : "39",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#List",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/lists",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "List",
+      "en" : "List"
+    },
+    "id" : "46",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#ProgressIndicator",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/progress-indicators",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ProgressIndicator",
+      "en" : "Progress Indicator"
+    },
+    "id" : "67",
+    "superClasses" : [ "22" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#TemporarySurface",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "TemporarySurface",
+      "en" : "Temporary Service"
+    },
+    "subClasses" : [ "30", "67", "60", "21" ],
+    "id" : "22",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#NamedUser",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "NamedUser",
+      "en" : "Named User"
+    },
+    "id" : "1",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Backdrop",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/backdrop",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Backdrop",
+      "en" : "Backdrop"
+    },
+    "comment" : {
+      "en" : "A backdrop appears behind all other surfaces in an app, displaying contextual and actionable content."
+    },
+    "id" : "12",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#SideSheet",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/sheets-side#usage",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SideSheet",
+      "en" : "Side Sheet"
+    },
+    "id" : "18",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#NavigationComponent",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "NavigationComponent",
+      "en" : "Navigation Component"
+    },
+    "subClasses" : [ "63", "10", "54", "56" ],
+    "comment" : {
+      "en" : "Navigation Components allow movement to primary destinations in an App."
+    },
+    "id" : "8",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#LandingThing",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LandingThing",
+      "en" : "Landing Thing"
+    },
+    "comment" : {
+      "en" : "The LandingThing is the object -- or Thing -- that the user landed on, its EKG/IRI is the current browser IRI.\n\nOther components may query the LandingThing-component for additional information such as its types (rdf:type).\n\nFor instance, the UseCases-component may use these types to query\nthe EKG for all use cases supported for the given user and the given LandingThing."
+    },
+    "id" : "80",
+    "superClasses" : [ "49" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Element",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Element",
+      "en" : "Element"
+    },
+    "subClasses" : [ "33", "51", "44", "3", "32", "46", "39" ],
+    "id" : "4",
+    "superClasses" : [ "36" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Surface",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Surface",
+      "en" : "Surface"
+    },
+    "subClasses" : [ "35", "41", "26", "20", "29", "22", "14", "12", "18", "16", "8" ],
+    "id" : "9",
+    "superClasses" : [ "36" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#User",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "User",
+      "en" : "User"
+    },
+    "subClasses" : [ "6", "1" ],
+    "id" : "2",
+    "superClasses" : [ "49" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#AppNavigator",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "AppNavigator",
+      "en" : "App Navigator"
+    },
+    "comment" : {
+      "en" : "A generic component that allows a user to navigator to other Apps or\nprimary destinations in the existing App supporting:\n\n- NavigationDrawer\n- BottomNavigationBar (for up to 3 destinations)\n- NavigationRail (for up to 7 destinations)"
+    },
+    "id" : "56",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#DatapointMenu",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "DatapointMenu"
+    },
+    "id" : "23",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#TabLayout",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://ekgf.github.io/o-ux/component#Tab",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/tabs/android#using-tabs",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "TabLayout",
+      "en" : "Tab Layout"
+    },
+    "id" : "41",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#ModelComponent",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ModelComponent",
+      "en" : "Model Component"
+    },
+    "subClasses" : [ "79", "77", "80", "82", "2" ],
+    "comment" : {
+      "en" : "A ModelComponent is an active component that manages a data structure in the browser (or a reporting engine) to be used by ViewComponents."
+    },
+    "id" : "49",
+    "superClasses" : [ "37" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#TopAppBar",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/app-bars-top",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "TopAppBar",
+      "en" : "Top App Bar"
+    },
+    "comment" : {
+      "en" : "The top app bar displays information and actions relating to the current screen.\n\nThe top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.\n\nIt can transform into a contextual action bar."
+    },
+    "id" : "57",
+    "superClasses" : [ "26" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Component",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Component",
+      "en" : "Component"
+    },
+    "subClasses" : [ "49", "36" ],
+    "id" : "37"
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#NavigationDestinations",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "NavigationDestinations",
+      "en" : "Navigation Destinations"
+    },
+    "comment" : {
+      "en" : "NavigationDestinations collects all primary destinations that the user can navigate too.\n\nTo be used in conjunction with NavigationComponent."
+    },
+    "id" : "82",
+    "superClasses" : [ "49" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#UseCases",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "UseCases",
+      "en" : "Use Cases"
+    },
+    "comment" : {
+      "en" : "The UseCases component collects all current use cases from the EKG that the current User could have access to given the current LandingThing.\n\nFor each supported Use Case it knows the EKG/IRI, its label and the Personas that the current user has.\n\nOther components can ask the UseCases-component for more details\nabout whether a given Story in a given UseCase is supported for the\ngiven Persona.\nThat information could then be used to show or not show certain elements\nin the user interface that may or may not be available to the current user."
+    },
+    "id" : "79",
+    "superClasses" : [ "49" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Session",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Session",
+      "en" : "Session"
+    },
+    "id" : "77",
+    "superClasses" : [ "49" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#DataTable",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/data-tables",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "DataTable",
+      "en" : "Data Table"
+    },
+    "id" : "14",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Card",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/cards",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Card",
+      "en" : "Card"
+    },
+    "comment" : {
+      "en" : "Cards contain content and actions about a single subject.\n\nCards are surfaces that display content and actions on a single topic.\n\nThey should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy."
+    },
+    "id" : "16",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#BottomNavigationBar",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/bottom-navigation",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "BottomNavigationBar",
+      "en" : "Bottom Navigation Bar"
+    },
+    "comment" : {
+      "en" : "Bottom navigation bars allow movement between primary destinations in an app.\n\nBottom navigation bars display three to five destinations at the bottom of a screen. Each destination is represented by an icon and an optional text label. When a bottom navigation icon is tapped, the user is taken to the top-level navigation destination associated with that icon."
+    },
+    "id" : "63",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Canvas",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Canvas",
+      "en" : "Canvas"
+    },
+    "id" : "29",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#NavigationRail",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/navigation-rail",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "NavigationRail",
+      "en" : "Navigation Rail"
+    },
+    "comment" : {
+      "en" : "Navigation rails provide ergonomic movement between primary destinations in apps.\n\nThe rail is a side navigation component that displays three to seven app destinations and, optionally, a Floating Action Button. \nEach destination is represented by an icon and a text label.\n\nThe rail can function on its own at larger screen sizes, such as desktop and tablet. \nWhen users transition between screen sizes and devices, the rail can also complement other navigation components, such as bottom navigation."
+    },
+    "id" : "54",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#SnackBar",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/snackbars",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SnackBar",
+      "en" : "Snackbar"
+    },
+    "comment" : {
+      "en" : "Snackbars provide brief messages about app processes at the bottom of the screen."
+    },
+    "id" : "60",
+    "superClasses" : [ "22" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#BottomSheet",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/sheets-bottom",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "BottomSheet",
+      "en" : "Bottom Sheet"
+    },
+    "id" : "35",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#Checkbox",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://material.io/components/checkboxes",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Checkbox",
+      "en" : "Checkbox"
+    },
+    "id" : "44",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#StoryMenu",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "StoryMenu"
+    },
+    "id" : "24",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "https://ekgf.github.io/o-ux/component#AnonymousUser",
+    "baseIri" : "https://ekgf.github.io/o-ux/component",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://orcid.org/0000-0003-2309-5068",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "AnonymousUser",
+      "en" : "Anonymous User"
+    },
+    "id" : "6",
+    "superClasses" : [ "2" ]
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "5",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "7",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "11",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "13",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "15",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "17",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "19",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "27",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "28",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "34",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "40",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "45",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "47",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "48",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "50",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "52",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "53",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "55",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "58",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "59",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "61",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "62",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "64",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "65",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "66",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "68",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "69",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "70",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "71",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "72",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "73",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "74",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "75",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "76",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "78",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "81",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "83",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "84",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "85",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "86",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "87",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "88",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "89",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "90",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "91",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "92",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "93",
+    "type" : "owl:disjointWith"
+  } ],
+  "propertyAttribute" : [ {
+    "range" : "2",
+    "domain" : "1",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "0"
+  }, {
+    "range" : "2",
+    "domain" : "6",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "5"
+  }, {
+    "range" : "9",
+    "domain" : "8",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "7"
+  }, {
+    "range" : "9",
+    "domain" : "12",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "11"
+  }, {
+    "range" : "9",
+    "domain" : "14",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "13"
+  }, {
+    "range" : "9",
+    "domain" : "16",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "15"
+  }, {
+    "range" : "9",
+    "domain" : "18",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "17"
+  }, {
+    "range" : "9",
+    "domain" : "20",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "19"
+  }, {
+    "range" : "9",
+    "domain" : "26",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "25"
+  }, {
+    "range" : "9",
+    "domain" : "22",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "27"
+  }, {
+    "range" : "9",
+    "domain" : "29",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "28"
+  }, {
+    "range" : "9",
+    "domain" : "35",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "34"
+  }, {
+    "range" : "4",
+    "domain" : "39",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "38"
+  }, {
+    "range" : "9",
+    "domain" : "41",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "40"
+  }, {
+    "range" : "4",
+    "domain" : "3",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "42"
+  }, {
+    "range" : "4",
+    "domain" : "44",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "43"
+  }, {
+    "range" : "4",
+    "domain" : "46",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "45"
+  }, {
+    "range" : "4",
+    "domain" : "32",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "47"
+  }, {
+    "range" : "36",
+    "domain" : "49",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "48"
+  }, {
+    "range" : "4",
+    "domain" : "51",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "50"
+  }, {
+    "range" : "4",
+    "domain" : "33",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "52"
+  }, {
+    "range" : "8",
+    "domain" : "54",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "53"
+  }, {
+    "range" : "8",
+    "domain" : "56",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "55"
+  }, {
+    "range" : "22",
+    "domain" : "21",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "58"
+  }, {
+    "range" : "22",
+    "domain" : "60",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "59"
+  }, {
+    "range" : "8",
+    "domain" : "10",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "61"
+  }, {
+    "range" : "8",
+    "domain" : "63",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "62"
+  }, {
+    "range" : "26",
+    "domain" : "31",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "64"
+  }, {
+    "range" : "26",
+    "domain" : "57",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "65"
+  }, {
+    "range" : "22",
+    "domain" : "67",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "66"
+  }, {
+    "range" : "22",
+    "domain" : "30",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "68"
+  }, {
+    "range" : "36",
+    "domain" : "9",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "69"
+  }, {
+    "range" : "36",
+    "domain" : "4",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "70"
+  }, {
+    "range" : "21",
+    "domain" : "24",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "71"
+  }, {
+    "range" : "37",
+    "domain" : "49",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "72"
+  }, {
+    "range" : "49",
+    "domain" : "2",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "73"
+  }, {
+    "range" : "21",
+    "domain" : "23",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "74"
+  }, {
+    "range" : "37",
+    "domain" : "36",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "75"
+  }, {
+    "range" : "49",
+    "domain" : "77",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "76"
+  }, {
+    "range" : "49",
+    "domain" : "79",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "78"
+  }, {
+    "range" : "49",
+    "domain" : "82",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "81"
+  }, {
+    "range" : "49",
+    "domain" : "80",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "83"
+  }, {
+    "range" : "10",
+    "domain" : "56",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "84"
+  }, {
+    "range" : "54",
+    "domain" : "56",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "85"
+  }, {
+    "range" : "10",
+    "domain" : "63",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "86"
+  }, {
+    "range" : "54",
+    "domain" : "63",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "87"
+  }, {
+    "range" : "54",
+    "domain" : "10",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "88"
+  }, {
+    "range" : "57",
+    "domain" : "31",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "89"
+  }, {
+    "range" : "24",
+    "domain" : "23",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "90"
+  }, {
+    "range" : "9",
+    "domain" : "4",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "91"
+  }, {
+    "range" : "1",
+    "domain" : "6",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "92"
+  }, {
+    "range" : "63",
+    "domain" : "56",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "93"
+  } ]
+}
