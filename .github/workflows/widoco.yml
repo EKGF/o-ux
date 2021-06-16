@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Widoco
-        uses: ./.github/actions/widoco.yml
+        uses: ./.github/actions/widoco
         with:
           ontologyFile: 'ux-component.ttl'
           ontologyPrefix: 'ekgux'
